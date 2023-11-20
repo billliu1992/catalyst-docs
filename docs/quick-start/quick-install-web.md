@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Quick Start on Web
 
+For a working example, please checkout our [examples repo](https://github.com/catalyst-monitor/catalyst-examples).
+
 ## Initialize the library
 
 To get started, add the core Javascript library to your client:
@@ -32,7 +34,7 @@ installWebBase({
 
 You can record navigation events by installing a provided library for your navigation framework, or manually instrumenting yourself.
 
-Currently, we have a library for [React Router v6](https://reactrouter.com). Feel free to [reach out](mailto:bill@privium.xyz) if you'd like to see your navigation library supported.
+Currently, we have a library for [React Router v6](https://reactrouter.com). If you'd like to use Catalyst with a different library, you can either [manually instrument yourself](/guides/instrument-web-navigation), or [reach out to us](mailto:bill@privium.xyz).
 
 First, add the package.
 

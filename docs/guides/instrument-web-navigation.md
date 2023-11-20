@@ -10,7 +10,7 @@ Please check if we provide a package for your choice of navigation framework, be
 
 Being able to breakdown your errors and logs by page can greatly speed up your triage and debugging processes.
 
-An example of a working implementation can be found [here](https://github.com/billliu1992/codebase-doctor-js/blob/main/packages/react-router/src/Catalyst.tsx).
+An example of a working implementation can be found [here](https://github.com/catalyst-monitor/catalyst-js/blob/main/packages/react-router/src/Catalyst.tsx).
 
 In order for Catalyst to associate logs and errors to the page the user is currently on, you'll need to let Catalyst know when the user changes page. You can do so by calling `getCatalystWeb().recordPageView(...)`.
 

@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Quick Start on Node.js
 
+For a working example, please checkout our [examples repo](https://github.com/catalyst-monitor/catalyst-examples).
+
 ## Initialize the Library
 
 To get started, add the core Javascript library to your Node.js application:
@@ -31,7 +33,7 @@ const sdf = installNodeBase({
 
 You can record HTTP requests and their statuses by installing a library for your framework, or manually instrumenting yourself.
 
-Currently, we have a library for [Express](https://expressjs.com/). Feel free to [reach out](mailto:bill@privium.xyz) if you'd like to see your framework supported.
+Currently, we have a library for [Express](https://expressjs.com/). If you'd like to use Catalyst with a different library, you can either [manually instrument yourself](/guides/instrument-node-http), or [reach out to us](mailto:bill@privium.xyz).
 
 First, add the package.
 

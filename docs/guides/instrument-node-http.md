@@ -10,7 +10,7 @@ Please check if we provide a package for your choice of HTTP server, before manu
 
 Being able to breakdown your errors and logs by HTTP request can greatly speed up your triage and debugging processes.
 
-An example of a working implementation can be found [here](https://github.com/billliu1992/codebase-doctor-js/blob/main/packages/express/src/index.ts).
+An example of a working implementation can be found [here](https://github.com/catalyst-monitor/catalyst-js/blob/main/packages/express/src/index.ts).
 
 ## Creating a Context
 
