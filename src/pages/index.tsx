@@ -130,6 +130,13 @@ export default function Hello() {
               See the Docs
             </a>
           </div>
+          <div
+            className={styles.demoContainer}
+            dangerouslySetInnerHTML={{
+              __html:
+                '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/34be0477468f435ca1db331af27bab33?sid=2ea4f726-14f4-489b-99bf-50da9b280a4e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
+            }}
+          />
         </div>
       </div>
     </Layout>

@@ -93,17 +93,17 @@ export default function Hello() {
             schedule a demo.
           </p>
           <div className={styles.bottomCtas}>
-            <a
-              className={styles.secondaryCta}
-              target="_blank"
-              href="https://www.loom.com/share/34be0477468f435ca1db331af27bab33?sid=4fecce25-dcdd-4f35-8925-9a75804a488f"
-            >
-              Watch a Demo
-            </a>
             <a className={styles.primaryCta} href="mailto:bill@privium.xyz">
               Talk to a Human
             </a>
           </div>
+          <div
+            className={styles.demoContainer}
+            dangerouslySetInnerHTML={{
+              __html:
+                '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/34be0477468f435ca1db331af27bab33?sid=2ea4f726-14f4-489b-99bf-50da9b280a4e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
+            }}
+          />
         </div>
       </div>
     </Layout>
