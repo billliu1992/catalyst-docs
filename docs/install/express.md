@@ -1,26 +1,30 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Quick Start on Node.js
+# Express.js
+
+These are the installation instructions for [Express](https://expressjs.com/). Installation for generic Node.js frameworks can be found [here](other-node).
 
 For a working example, please checkout our [examples repo](https://github.com/catalyst-monitor/catalyst-examples).
 
-## Initialize the Library
+## Add the dependencies
 
-To get started, add the core Javascript library to your Node.js application:
+To get started, add the Catalyst dependencies:
 
 ```bash title="Terminal"
-npm install @catalyst-monitor/core
+npm install @catalyst-monitor/core @catalyst-monitor/express
 
 # Alternatively, if you use Yarn:
-yarn add @catalyst-monitor/core
+yarn add @catalyst-monitor/core @catalyst-monitor/express
 ```
+
+## Initialize the library
 
 Initialize the library as early as possible:
 
 ```ts title="index.ts"
-import { installNodeBase } from '@catalyst-monitor/core'
+import { installNodeBase } from '@catalyst-monitor/core/node'
 
 const sdf = installNodeBase({
   privateKey: '<YOUR PRIVATEY KEY HERE>', // The private key from the "Settings" page in the Catalyst dashboard.
@@ -31,17 +35,7 @@ const sdf = installNodeBase({
 
 ## Record HTTP requests
 
-You can record HTTP requests and their statuses by installing a library for your framework, or manually instrumenting yourself.
-
-Currently, we have a library for [Express](https://expressjs.com/). If you'd like to use Catalyst with a different library, you can either [manually instrument yourself](/guides/instrument-node-http), or [reach out to us](mailto:bill@privium.xyz).
-
-First, add the package.
-
-```bash title="Terminal"
-npm install @catalyst-monitor/express
-```
-
-Afterwards, wrap your code with the library.
+Install the two Catalyst middleware functions, to record requests and logs.
 
 ```ts title="app.ts"
 import express from 'express'
@@ -70,7 +64,7 @@ Replace `fetch(...)` calls to servers with Catalyst installed with the provided 
 Note that `catalystNodeFetch` has the same interface as `fetch`, so you can simply drop the new function in.
 
 ```ts title="api.ts"
-import { catalystNodeFetch as cFetch } from '@catalyst-monitor/core'
+import { catalystNodeFetch as cFetch } from '@catalyst-monitor/core/node'
 
 await cFetch("/api/widget/123", {
   method: method,

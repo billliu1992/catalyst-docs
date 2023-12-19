@@ -9,7 +9,7 @@ By default, `installNodeBase` and `installWebBase` will send messages from `cons
 However, once you've initialized the library, you can also manually log events in Catalyst in the following manner:
 
 ```ts title="Web"
-import { getCatalystWeb } from '@catalyst-monitor/core'
+import { getCatalystWeb } from '@catalyst-monitor/core/web'
 
 // installWebBase MUST be called beforehand!
 
@@ -21,7 +21,7 @@ getCatalystWeb().recordLog(
 ```
 
 ```ts title="Node.js"
-import { getCatalystNode } from '@catalyst-monitor/core'
+import { getCatalystNode } from '@catalyst-monitor/core/node'
 
 // installNodeBase MUST be called beforehand!
 

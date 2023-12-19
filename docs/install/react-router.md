@@ -1,30 +1,34 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Quick Start on Web
+# React with React Router
+
+These are the installation instructions for [React](https://react.dev) with [React Router v6](https://reactrouter.com). Installation for any web frameworks can be found [here](other-web).
 
 For a working example, please checkout our [examples repo](https://github.com/catalyst-monitor/catalyst-examples).
 
-## Initialize the library
+## Add the dependencies
 
-To get started, add the core Javascript library to your client:
+To get started, add the Catalyst dependencies:
 
 ```bash title="Terminal"
-npm install @catalyst-monitor/core
+npm install @catalyst-monitor/core @catalyst-monitor/react-router
 
 # Alternatively, if you use Yarn:
-yarn add @catalyst-monitor/core
+yarn add @catalyst-monitor/core @catalyst-monitor/react-router
 ```
+
+## Initialize the library
 
 Initialize the library as early as possible:
 
 ```ts title="index.ts"
-import { installWebBase } from '@catalyst-monitor/core'
+import { installWebBase } from '@catalyst-monitor/core/web'
 
 installWebBase({
   version: '<YOUR VERSION CODE HERE>', // Any to differentiate different deploys, e.g. Git commit SHA
-  systemName: 'catalyst-js-react-example',
+  systemName: 'catalyst-js-react-example',  // The name given to this service. All endpoints will be grouped by this name.
   userAgent: navigator.userAgent,
   publicKey: '<YOUR PUBLIC KEY HERE>', // The public key from the "Settings" page in the Catalyst dashboard.
 })
@@ -32,17 +36,7 @@ installWebBase({
 
 ## Record Navigation Events
 
-You can record navigation events by installing a provided library for your navigation framework, or manually instrumenting yourself.
-
-Currently, we have a library for [React Router v6](https://reactrouter.com). If you'd like to use Catalyst with a different library, you can either [manually instrument yourself](/guides/instrument-web-navigation), or [reach out to us](mailto:bill@privium.xyz).
-
-First, add the package.
-
-```bash title="Terminal"
-npm install @catalyst-monitor/react-router
-```
-
-Afterwards, wrap your code with the library.
+To record navigation events, simply wrap your existing routes with Catalyst.
 
 ```ts
 import {
@@ -76,7 +70,7 @@ Note that `catalystWebFetch` has the same interface as `fetch`, so you can simpl
 
 ```ts title="api.ts"
 
-import { catalystWebFetch as cFetch } from '@catalyst-monitor/core'
+import { catalystWebFetch as cFetch } from '@catalyst-monitor/core/web'
 
 await cFetch("/api/widget/123", {
   method: method,

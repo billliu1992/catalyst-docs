@@ -1,0 +1,147 @@
+.content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 0 128px;
+}
+
+.first {
+    height: 100vh;
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 42px;
+    margin: 0 0 48px;
+}
+
+@media (max-width: 500px) {
+    .pageTitle {
+        font-size: 36px;
+    }
+}
+
+.tiers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 8px;
+    place-content: center;
+}
+
+.tier {
+    border-radius: 8px;
+    border: 1px solid #487ce4;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+    .first {
+        height: 100%;
+    }
+
+    .tiers {
+        display: block;
+        padding: 0 8px;
+    }
+
+    .tier {
+        margin-bottom: 12px;
+    }
+}
+
+
+.tierName {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.price {
+    margin-top: 12px;
+}
+
+.priceAmount {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.priceUnit {
+    font-size: 14px;
+    color: #45464f;
+}
+
+.tier ul {
+    border-top: 1px solid #C4C7C5;
+    margin: 12px 0 24px 0;
+    padding: 12px 0 0 0;
+    list-style-type: none
+}
+
+.monthlyDisclaimer {
+    margin: 12px 0 8px;
+    font-size: 14px;
+    color: #45464f;
+}
+
+
+.tier .secondaryCta,
+.tier .primaryCta {
+    display: block;
+}
+
+.secondaryCta,
+.primaryCta {
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.secondaryCta:hover,
+.secondaryCta:link,
+.secondaryCta:visited {
+    text-decoration: none;
+}
+
+.secondaryCta {
+    border: 1px solid #2663DF;
+}
+
+.primaryCta,
+.primaryCta:hover,
+.primaryCta:link,
+.primaryCta:visited {
+    background-color: #2663DF;
+    color: white;
+    text-decoration: none;
+}
+
+.contactUs {
+    margin-bottom: 25vh;
+    text-align: center;
+}
+
+.contactUs h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.contactUs p {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.bottomCtas .primaryCta,
+.bottomCtas .secondaryCta {
+    display: inline-block;
+    margin: 0 12px;
+}
+
+@media (max-width: 500px) {
+    .contactUs {
+        margin-top: 15vh;
+        margin-bottom: 15vh;
+    }
+}

@@ -1,0 +1,252 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.first {
+    padding: 18vh 12px 64px;
+    max-width: 900px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pageTitle {
+    font-size: 42px;
+    margin: 0 0 24px 0;
+    padding: 0;
+}
+
+.exclaim {
+    color: #2663DF;
+}
+
+.subtitle {
+    line-height: 1.4;
+    font-size: 24px;
+    color: #45464f;
+}
+
+.ctas {
+    text-align: center;
+}
+
+.mainCta {
+    margin-top: 24px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background-color: #2663DF;
+    font-size: 24px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mainCta:hover,
+.mainCta:link,
+.mainCta:visited {
+    color: #fefbff;
+}
+
+.mainDocs {
+    font-size: 24px;
+    margin-left: 12px;
+    display: inline-block;
+}
+
+.mainPreviewScreen {
+    width: 90vw;
+    max-width: 1100px;
+    box-shadow: 0 0 5px -3px;
+    display: block;
+    margin-bottom: 124px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+@media (max-width: 500px) {
+    .first {
+        padding: 10vh 8px 64px;
+    }
+
+    .pageTitle {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .mainPreviewScreen {
+        width: 100%;
+    }
+}
+
+.detailsContainer {
+    background: url("/img/bg.svg");
+    width: 100vw;
+    padding: 72px;
+}
+
+.details {
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: grid;
+    column-gap: 24px;
+    row-gap: 12px;
+    grid-template-columns: 500px 1250px;
+    grid-template-rows: auto auto auto;
+}
+
+.card {
+    grid-column-start: 1;
+    box-sizing: border-box;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #fefbff;
+    display: flex;
+    align-items: center;
+}
+
+.details:not(:hover) .firstCard,
+.card:hover {
+    background-color: #faf8ff;
+    outline: 2px solid #487ce4;
+}
+
+.card h2 {
+    color: #2663DF;
+    font-size: 18px;
+    margin: 0 0 12px;
+}
+
+.card p {
+    line-height: 1.5;
+    font-size: 16px;
+    margin: 0;
+}
+
+.emoji {
+    font-size: 36px;
+    margin-right: 24px;
+}
+
+.detailsScreen {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+}
+
+.detailsScreen img {
+    border-radius: 8px;
+    display: block;
+    height: 100%;
+    object-fit: contain;
+}
+
+.detailsScreen.firstScreen,
+.card:hover + .detailsScreen {
+    display: block;
+}
+
+@media (max-width: 1000px) {
+    .detailsContainer {
+        padding: 72px 0;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        column-gap: 0;
+        row-gap: 0;
+    }
+
+    .details:not(:hover) .firstCard,
+    .card:hover {
+        background-color: #faf8ff;
+        outline: 0;
+    }
+
+    .detailsScreen {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 48px;
+    }
+}
+
+.bottomCtaContainer {
+    padding: 72px 0 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientLibText {
+    padding: 0 12px;
+    text-align: center;
+    max-width: 700px;
+}
+
+.clientLibText p {
+    font-size: 16px;
+}
+
+.clientLibs {
+    margin: 12px 0 36px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+}
+
+.clientLibs a {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 12px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #487ce4;
+}
+
+@media (max-width: 750px) {
+    .clientLibs {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+
+.bottomCtas {
+    margin-top: 24px;
+}
+
+.bottomCta {
+    padding: 12px 18px;
+    border-radius: 12px;
+    background-color: #2663DF;
+    font-size: 24px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.bottomCta:hover,
+.bottomCta:link,
+.bottomCta:visited {
+    color: #fefbff;
+}
+
+.bottomDocs {
+    font-size: 24px;
+    margin-left: 12px;
+    display: inline-block;
+}

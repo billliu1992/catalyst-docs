@@ -3,12 +3,12 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "Catalyst Docs",
-  tagline: "",
+  title: "Catalyst",
+  tagline: "Monitoring for high velocity teams.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://docs.catalystmonitor.com",
+  url: "https://www.catalystmonitor.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -35,7 +35,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          routeBasePath: "/",
+          routeBasePath: "/docs",
 
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
@@ -65,17 +65,12 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "Catalyst Docs",
+      title: "Catalyst",
       logo: {
         alt: "Logo for Catalyst",
         src: "img/logo.svg",
       },
       items: [
-        {
-          href: "https://www.catalystmonitor.com",
-          position: "left",
-          label: "Home",
-        },
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
@@ -83,15 +78,20 @@ const config: Config = {
           label: "Docs",
         },
         {
-          href: "https://app.catalystmonitor.com",
+          label: "Pricing",
+          to: "pricing",
           position: "left",
-          label: "Dashboard",
         },
-        /* { to: "/blog", label: "Blog", position: "left" }, */
         {
           href: "https://github.com/catalyst-monitor",
           label: "GitHub",
+          position: "left",
+        },
+        /* { to: "/blog", label: "Blog", position: "left" }, */
+        {
+          href: "https://app.catalystmonitor.com",
           position: "right",
+          label: "Sign Up",
         },
       ],
     },
@@ -110,7 +110,11 @@ const config: Config = {
               to: "/",
             },
             {
-              label: "Dashboard",
+              label: "Pricing",
+              to: "/pricing",
+            },
+            {
+              label: "Sign Up",
               to: "https://app.catalystmonitor.com",
             },
           ],
