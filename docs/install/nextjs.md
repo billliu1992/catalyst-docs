@@ -4,7 +4,9 @@ sidebar_position: 1
 
 # Next.js (App Router)
 
-These are the installation instructions for [Next.js](https://nextjs.org/). For other Node.js or web frameworks, checkout our [other installation guides](./).
+These are the installation instructions for [Next.js](https://nextjs.org/). For other Node.js or web frameworks, checkout our [other installation guides](/docs/category/install-catalyst).
+
+Before you start, you'll need to sign up for Catalyst and have your keys ready, as detailed [here](/docs/signup).
 
 ## Add the dependency
 
