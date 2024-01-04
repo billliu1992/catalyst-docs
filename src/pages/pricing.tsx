@@ -93,7 +93,11 @@ export default function Hello() {
             schedule a demo.
           </p>
           <div className={styles.bottomCtas}>
-            <a className={styles.primaryCta} href="mailto:bill@privium.xyz">
+            <a
+              className={styles.primaryCta}
+              target="_blank"
+              href="https://calendly.com/chat-bill-liu/catalyst-intro"
+            >
               Talk to a Human
             </a>
           </div>

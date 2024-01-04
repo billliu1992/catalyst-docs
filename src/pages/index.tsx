@@ -8,23 +8,27 @@ export default function Hello() {
       <div className={styles.container}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>
-            Find out when your webapp breaks{" "}
-            <span className={styles.exclaim}>without the noise and toil.</span>
+            Spend <span className={styles.exclaim}>more time building</span> and
+            <br />
+            less time keeping your webapp up
           </h1>
           <div className={styles.subtitle}>
-            Getting actionable monitoring shouldn't take a full time job. Get
-            alerted when and only when your webapp breaks.
+            Worry not, Catalyst will tell you when your webapp breaks and help
+            you fix it
           </div>
           <div className={styles.ctas}>
             <a
               className={styles.mainCta}
-              target="_blank"
               href="https://app.catalystmonitor.com"
             >
               Get it now!
             </a>
-            <a className={styles.mainDocs} href="/docs">
-              See the Docs
+            <a
+              className={styles.mainDocs}
+              target="_blank"
+              href="https://calendly.com/chat-bill-liu/catalyst-intro"
+            >
+              Let's Talk
             </a>
           </div>
         </div>
@@ -37,11 +41,11 @@ export default function Hello() {
             <div className={`${styles.card} ${styles.firstCard}`}>
               <div className={styles.emoji}>📉</div>
               <div>
-                <h2>Not every breakage is the same.</h2>
+                <h2>Save time and lower stress</h2>
                 <p>
-                  Is it a non-issue or an emergency? By providing error rates
-                  per-endpoint and per-page, you'll know exactly where and how
-                  severe your breakage is.
+                  Not every error is an emergency. Catalyst will tell you
+                  exactly when and how much you should care through error rates
+                  per-endpoint and per-page.
                 </p>
               </div>
             </div>
@@ -49,25 +53,12 @@ export default function Hello() {
               <img src="/img/catalyst_queries.png" />
             </div>
             <div className={styles.card}>
-              <div className={styles.emoji}>🎛️</div>
+              <div className={styles.emoji}>🔋</div>
               <div>
-                <h2>Find the commonalities.</h2>
+                <h2>Batteries Included</h2>
                 <p>
-                  What happened when things broke? Break down your errors and
-                  find the common link.
-                </p>
-              </div>
-            </div>
-            <div className={styles.detailsScreen}>
-              <img src="/img/catalyst_breakdowns.png" />
-            </div>
-            <div className={styles.card}>
-              <div className={styles.emoji}>🐞</div>
-              <div>
-                <h2>Debug a session across the stack</h2>
-                <p>
-                  Once you've identified a breakage, find out exactly what
-                  happened before and after.
+                  Get everything you need to fix whatever issue you face. Get
+                  your logs and user actions across the stack, all in context.
                 </p>
               </div>
             </div>
@@ -75,9 +66,22 @@ export default function Hello() {
               <img src="/img/catalyst_sessions.png" />
             </div>
             <div className={styles.card}>
+              <div className={styles.emoji}>🪡</div>
+              <div>
+                <h2>Here's your needle</h2>
+                <p>
+                  Break down your issue by multiple dimensions, so you can
+                  quickly find the cause of your issue.
+                </p>
+              </div>
+            </div>
+            <div className={styles.detailsScreen}>
+              <img src="/img/catalyst_breakdowns.png" />
+            </div>
+            <div className={styles.card}>
               <div className={styles.emoji}>🔔</div>
               <div>
-                <h2>Configurable alerting</h2>
+                <h2>Noiseless Alerting</h2>
                 <p>
                   Configure your alerting so you that when you get alerted, you
                   know it's worth looking into.
@@ -121,13 +125,16 @@ export default function Hello() {
           <div className={styles.bottomCtas}>
             <a
               className={styles.bottomCta}
-              target="_blank"
               href="https://app.catalystmonitor.com"
             >
               Get it now!
             </a>
-            <a className={styles.bottomDocs} href="/docs">
-              See the Docs
+            <a
+              target="_blank"
+              className={styles.bottomDocs}
+              href="https://calendly.com/chat-bill-liu/catalyst-intro"
+            >
+              Let's Talk
             </a>
           </div>
           <div

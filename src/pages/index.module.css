@@ -6,7 +6,7 @@
 
 .first {
     padding: 18vh 12px 64px;
-    max-width: 900px;
+    max-width: 1100px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
 }
 
 .pageTitle {
-    font-size: 42px;
+    font-size: 64px;
     margin: 0 0 24px 0;
     padding: 0;
 }
@@ -53,7 +53,7 @@
 
 .mainDocs {
     font-size: 24px;
-    margin-left: 12px;
+    margin-left: 24px;
     display: inline-block;
 }
 
@@ -247,7 +247,7 @@
 
 .bottomDocs {
     font-size: 24px;
-    margin-left: 12px;
+    margin-left: 24px;
     display: inline-block;
 }
 

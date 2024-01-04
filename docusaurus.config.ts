@@ -106,11 +106,11 @@ const config: Config = {
           items: [
             {
               label: "Home",
-              to: "https://www.catalystmonitor.com",
+              to: "/",
             },
             {
               label: "Documentation",
-              to: "/",
+              to: "/docs",
             },
             {
               label: "Pricing",
