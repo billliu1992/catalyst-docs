@@ -41,7 +41,7 @@ export default function Hello() {
             <div className={`${styles.card} ${styles.firstCard}`}>
               <div className={styles.emoji}>📉</div>
               <div>
-                <h2>Save time and lower stress</h2>
+                <h2>Save Time and Lower Stress</h2>
                 <p>
                   Not every error is an emergency. Catalyst will tell you
                   exactly when and how much you should care through error rates
@@ -57,8 +57,9 @@ export default function Hello() {
               <div>
                 <h2>Batteries Included</h2>
                 <p>
-                  Get everything you need to fix whatever issue you face. Get
-                  your logs and user actions across the stack, all in context.
+                  No need to sign up for another service. Get everything you
+                  need to fix whatever issue you face. Get your logs and user
+                  actions across the stack, all in context.
                 </p>
               </div>
             </div>
@@ -68,7 +69,7 @@ export default function Hello() {
             <div className={styles.card}>
               <div className={styles.emoji}>🪡</div>
               <div>
-                <h2>Here's your needle</h2>
+                <h2>Here's Your Needle</h2>
                 <p>
                   Break down your issue by multiple dimensions, so you can
                   quickly find the cause of your issue.
@@ -95,33 +96,15 @@ export default function Hello() {
         </div>
         <div className={styles.bottomCtaContainer}>
           <div className={styles.clientLibText}>
-            <h2>Don't change how you code or work.</h2>
+            <h2>Peace of Mind in Seconds</h2>
             <p>
-              Use one of our client libraries, and you'll immediately get
-              actionable alerting based on your existing logs and errors - no
-              long setup process required.
+              Your time is important, so Catalyst lets you get actionable data
+              in seconds - no long setup process required.{" "}
+              <a href="/docs" target="_blank">
+                Read the docs.
+              </a>
             </p>
           </div>
-          <div className={styles.clientLibs}>
-            <a href="/docs/install/nextjs">
-              <div>Next.js</div>
-              <div>(App Router)</div>
-            </a>
-            <a href="/docs/install/express">Express</a>
-            <a href="/docs/install/react-router">
-              <div>React Router</div>
-              <div>(v6)</div>
-            </a>
-            <a href="/docs/install/other-node">
-              <div>Other Node.JS</div>
-              <div>Frameworks</div>
-            </a>
-            <a href="/docs/install/other-web">
-              <div>Other Browser</div>
-              <div>Frameworks</div>
-            </a>
-          </div>
-
           <div className={styles.bottomCtas}>
             <a
               className={styles.bottomCta}
@@ -137,14 +120,28 @@ export default function Hello() {
               Let's Talk
             </a>
           </div>
-          <div
-            className={styles.demoContainer}
-            dangerouslySetInnerHTML={{
-              __html:
-                '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/34be0477468f435ca1db331af27bab33?sid=2ea4f726-14f4-489b-99bf-50da9b280a4e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
-            }}
-          />
+          <div className={styles.lastDitchLinks}>
+            You can also{" "}
+            <a href="https://discord.gg/JdREEFfB" target="_blank">
+              join our Discord
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc"
+              target="_blank"
+            >
+              sign up for our Newsletter
+            </a>
+            !
+          </div>
         </div>
+        <div
+          className={styles.demoContainer}
+          dangerouslySetInnerHTML={{
+            __html:
+              '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/34be0477468f435ca1db331af27bab33?sid=2ea4f726-14f4-489b-99bf-50da9b280a4e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
+          }}
+        />
       </div>
     </Layout>
   );

@@ -7,7 +7,7 @@
 
 .first {
     height: 100%;
-    min-height: 100vh;
+    min-height: 85vh;
     padding: 72px 0;
 }
 
@@ -32,7 +32,7 @@
 
 .tier {
     border-radius: 8px;
-    border: 1px solid #487ce4;
+    border: 1px solid var(--ifm-color-primary-lighter);
     padding: 12px 24px;
     box-sizing: border-box;
     display: flex;
@@ -72,7 +72,7 @@
 
 .priceUnit {
     font-size: 14px;
-    color: #45464f;
+    color: var(--catalyst-text-alt);
 }
 
 .tier ul {
@@ -85,7 +85,7 @@
 .monthlyDisclaimer {
     margin: 12px 0 8px;
     font-size: 14px;
-    color: #45464f;
+    color: var(--catalyst-text-alt);
 }
 
 
@@ -108,14 +108,14 @@
 }
 
 .secondaryCta {
-    border: 1px solid #2663DF;
+    border: 1px solid var(--ifm-color-primary);
 }
 
 .primaryCta,
 .primaryCta:hover,
 .primaryCta:link,
 .primaryCta:visited {
-    background-color: #2663DF;
+    background-color: var(--ifm-color-primary);
     color: white;
     text-decoration: none;
 }
@@ -123,22 +123,29 @@
 .contactUs {
     margin-bottom: 5vh;
     text-align: center;
+    font-size: 16px;
 }
 
 .contactUs h2 {
-    margin: 0;
     padding: 0;
 }
 
 .contactUs p {
-    margin-top: 8px;
+    margin: 0 0 12px;
+}
+
+.bottomCtas {
     margin-bottom: 12px;
 }
 
 .bottomCtas .primaryCta,
 .bottomCtas .secondaryCta {
     display: inline-block;
-    margin: 0 12px;
+}
+
+.lastDitchLinks {
+    font-size: 14px;
+    color: var(--catalyst-text-alt);
 }
 
 @media (max-width: 500px) {

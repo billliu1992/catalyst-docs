@@ -17,8 +17,8 @@ You will benefit most from Catalyst if the following describes your situation:
 
 If you fall under these criteria, Catalyst aims to be a drop-in monitoring solution that requires minimal effort to get going.
 
-## Catalyst is under early development!
+## Catalyst is under development!
 
 Interfaces are subject to change! Please only use Catalyst if you are okay with a bit of instability.
 
-We are still adding support for libraries and frameworks. If your library and or framework isn't supported, feel free to [reach out](mailto:bill@privium.xyz).
+We are still adding support for libraries and frameworks. If your library and or framework isn't supported, feel free to reach out either [through e-mail](mailto:bill@privium.xyz) or [via Discord](https://discord.gg/JdREEFfB).

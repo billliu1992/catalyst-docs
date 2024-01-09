@@ -101,6 +101,20 @@ export default function Hello() {
               Talk to a Human
             </a>
           </div>
+          <div className={styles.lastDitchLinks}>
+            You can also{" "}
+            <a href="https://discord.gg/JdREEFfB" target="_blank">
+              join our Discord
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc"
+              target="_blank"
+            >
+              sign up for our Newsletter
+            </a>
+            !
+          </div>
           <div
             className={styles.demoContainer}
             dangerouslySetInnerHTML={{

@@ -86,9 +86,16 @@ const config: Config = {
           position: "left",
         },
         {
+          "aria-label": "Join our Discord",
+          href: "https://discord.gg/gZx27dPu",
+          position: "right",
+          className: "navbar--discord-link",
+        },
+        {
+          "aria-label": "Find us on GitHub",
           href: "https://github.com/catalyst-monitor",
-          label: "GitHub",
-          position: "left",
+          position: "right",
+          className: "navbar--github-link",
         },
         /* { to: "/blog", label: "Blog", position: "left" }, */
         {
@@ -144,6 +151,10 @@ const config: Config = {
         {
           title: "More",
           items: [
+            {
+              label: "Talk to us!",
+              href: "https://calendly.com/chat-bill-liu/catalyst-intro",
+            },
             /*
             {
               label: "Blog",
@@ -153,6 +164,14 @@ const config: Config = {
             {
               label: "GitHub",
               href: "https://github.com/catalyst-monitor",
+            },
+            {
+              label: "Discord",
+              href: "https://discord.gg/gZx27dPu",
+            },
+            {
+              label: "Newsletter",
+              href: "https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc",
             },
           ],
         },
