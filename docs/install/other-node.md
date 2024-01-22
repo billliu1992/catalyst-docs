@@ -6,7 +6,7 @@ sidebar_position: 6
 
 :::note
 Before you manually instrument, please check if we provide a package for your choice of HTTP server! If we don't provide a package, we'd
-still like to work with you. Please reach out either [through e-mail](mailto:bill@privium.xyz) or [via Discord](https://discord.gg/JdREEFfB).
+still like to work with you. Please reach out either [through e-mail](mailto:bill@privium.xyz) or [via Discord](https://discord.gg/wm3gDnfT).
 :::
 
 For a working example, please checkout our [examples repo](https://github.com/catalyst-monitor/catalyst-examples).

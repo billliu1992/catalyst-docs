@@ -8,13 +8,12 @@ export default function Hello() {
       <div className={styles.container}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>
-            Spend <span className={styles.exclaim}>more time building</span> and
+            Build your web app,
             <br />
-            less time keeping your webapp up
+            <EX>and we'll keep it running.</EX>
           </h1>
           <div className={styles.subtitle}>
-            Worry not, Catalyst will tell you when your webapp breaks and help
-            you fix it
+            Setup everything you need to monitor and fix breakages in seconds.
           </div>
           <div className={styles.ctas}>
             <a
@@ -32,65 +31,53 @@ export default function Hello() {
             </a>
           </div>
         </div>
-        <img
-          className={styles.mainPreviewScreen}
-          src="/img/catalyst_queries.png"
-        />
+        <div className={styles.mainPreviewContainer}>
+          <img className={styles.mainPreviewScreen} src="/img/ss_home.png" />
+        </div>
         <div className={styles.detailsContainer}>
-          <div className={styles.details}>
-            <div className={`${styles.card} ${styles.firstCard}`}>
-              <div className={styles.emoji}>📉</div>
-              <div>
-                <h2>Save Time and Lower Stress</h2>
-                <p>
-                  Not every error is an emergency. Catalyst will tell you
-                  exactly when and how much you should care through error rates
-                  per-endpoint and per-page.
-                </p>
+          <div className={styles.detailRow}>
+            <div className={`${styles.card}`}>
+              <div className={styles.cardTitle}>
+                <div className={styles.emoji}>🚀</div>
+                <h2>More building, less busywork</h2>
               </div>
+              <p>
+                Sick of cleaning out your error inbox? Or cleaning up harmless
+                errors and logs just because they trigger alerts?
+              </p>
+              <p>
+                Catalyst measures error rates per-endpoint and per-page, so{" "}
+                <EX>you'll only get alerted when user flows are impacted.</EX>{" "}
+                With less interruptions, you get more time to build.
+              </p>
             </div>
-            <div className={`${styles.detailsScreen} ${styles.firstScreen}`}>
-              <img src="/img/catalyst_queries.png" />
+            <div className={`${styles.detailsScreen}`}>
+              <img src="/img/ss_pages.png" />
             </div>
+          </div>
+          <div className={`${styles.detailRow} ${styles.right}`}>
             <div className={styles.card}>
-              <div className={styles.emoji}>🔋</div>
-              <div>
-                <h2>Batteries Included</h2>
-                <p>
-                  No need to sign up for another service. Get everything you
-                  need to fix whatever issue you face. Get your logs and user
-                  actions across the stack, all in context.
-                </p>
+              <div className={styles.cardTitle}>
+                <div className={styles.emoji}>🔋</div>
+                <h2>Everything you need, ready in seconds</h2>
               </div>
+              <p>
+                Hate paying for multiple services? Get everything you need to
+                find and fix breakages with Catalyst, including:
+              </p>
+              <ul>
+                <li>End-to-end errors and logs</li>
+                <li>Session tracking</li>
+                <li>Configurable alerting</li>
+                <li>Click tracking</li>
+              </ul>
+              <p>
+                No dedicated SRE or infra teams required.{" "}
+                <EX>You can set up Catalyst in seconds!</EX>
+              </p>
             </div>
             <div className={styles.detailsScreen}>
-              <img src="/img/catalyst_sessions.png" />
-            </div>
-            <div className={styles.card}>
-              <div className={styles.emoji}>🪡</div>
-              <div>
-                <h2>Here's Your Needle</h2>
-                <p>
-                  Break down your issue by multiple dimensions, so you can
-                  quickly find the cause of your issue.
-                </p>
-              </div>
-            </div>
-            <div className={styles.detailsScreen}>
-              <img src="/img/catalyst_breakdowns.png" />
-            </div>
-            <div className={styles.card}>
-              <div className={styles.emoji}>🔔</div>
-              <div>
-                <h2>Noiseless Alerting</h2>
-                <p>
-                  Configure your alerting so you that when you get alerted, you
-                  know it's worth looking into.
-                </p>
-              </div>
-            </div>
-            <div className={styles.detailsScreen}>
-              <img src="/img/catalyst_alerts.png" />
+              <img src="/img/ss_session.png" />
             </div>
           </div>
         </div>
@@ -122,7 +109,7 @@ export default function Hello() {
           </div>
           <div className={styles.lastDitchLinks}>
             You can also{" "}
-            <a href="https://discord.gg/JdREEFfB" target="_blank">
+            <a href="https://discord.gg/wm3gDnfT" target="_blank">
               join our Discord
             </a>{" "}
             and{" "}
@@ -139,10 +126,14 @@ export default function Hello() {
           className={styles.demoContainer}
           dangerouslySetInnerHTML={{
             __html:
-              '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/34be0477468f435ca1db331af27bab33?sid=2ea4f726-14f4-489b-99bf-50da9b280a4e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
+              '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/75e1f3e494ec4c8a85ce39007561c3a3?sid=795d4e11-7a19-4b81-a807-1ddc22b9ea41" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
           }}
         />
       </div>
     </Layout>
   );
+}
+
+function EX({ children }: { children: React.ReactNode }) {
+  return <span className={styles.exclaim}>{children}</span>;
 }

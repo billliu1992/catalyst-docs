@@ -66,7 +66,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/social-card.jpg",
     navbar: {
       title: "Catalyst",
       logo: {
@@ -87,7 +87,7 @@ const config: Config = {
         },
         {
           "aria-label": "Join our Discord",
-          href: "https://discord.gg/gZx27dPu",
+          href: "https://discord.gg/wm3gDnfT",
           position: "right",
           className: "navbar--discord-link",
         },
@@ -167,7 +167,7 @@ const config: Config = {
             },
             {
               label: "Discord",
-              href: "https://discord.gg/gZx27dPu",
+              href: "https://discord.gg/wm3gDnfT",
             },
             {
               label: "Newsletter",

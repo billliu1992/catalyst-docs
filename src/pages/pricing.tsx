@@ -103,7 +103,7 @@ export default function Hello() {
           </div>
           <div className={styles.lastDitchLinks}>
             You can also{" "}
-            <a href="https://discord.gg/JdREEFfB" target="_blank">
+            <a href="https://discord.gg/wm3gDnfT" target="_blank">
               join our Discord
             </a>{" "}
             and{" "}
@@ -119,7 +119,7 @@ export default function Hello() {
             className={styles.demoContainer}
             dangerouslySetInnerHTML={{
               __html:
-                '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/34be0477468f435ca1db331af27bab33?sid=2ea4f726-14f4-489b-99bf-50da9b280a4e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
+                '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/75e1f3e494ec4c8a85ce39007561c3a3?sid=795d4e11-7a19-4b81-a807-1ddc22b9ea41" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
             }}
           />
         </div>
