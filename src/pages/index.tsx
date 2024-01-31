@@ -109,7 +109,7 @@ export default function Hello() {
           </div>
           <div className={styles.lastDitchLinks}>
             You can also{" "}
-            <a href="https://discord.gg/wm3gDnfT" target="_blank">
+            <a href="https://discord.gg/YQZy4SXzmX" target="_blank">
               join our Discord
             </a>{" "}
             and{" "}

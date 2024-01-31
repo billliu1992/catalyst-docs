@@ -87,7 +87,7 @@ const config: Config = {
         },
         {
           "aria-label": "Join our Discord",
-          href: "https://discord.gg/wm3gDnfT",
+          href: "https://discord.gg/YQZy4SXzmX",
           position: "right",
           className: "navbar--discord-link",
         },
@@ -167,7 +167,7 @@ const config: Config = {
             },
             {
               label: "Discord",
-              href: "https://discord.gg/wm3gDnfT",
+              href: "https://discord.gg/YQZy4SXzmX",
             },
             {
               label: "Newsletter",

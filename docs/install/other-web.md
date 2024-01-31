@@ -6,7 +6,7 @@ sidebar_position: 5
 
 :::note
 Before manually instrumenting, please check if we provide a package for your choice of framework! If we don't provide a package, we'd
-still like to work with you. Please reach out either [through e-mail](mailto:bill@privium.xyz) or [via Discord](https://discord.gg/wm3gDnfT).
+still like to work with you. Please reach out either [through e-mail](mailto:bill@privium.xyz) or [via Discord](https://discord.gg/YQZy4SXzmX).
 :::
 
 For a working example, please checkout our [examples repo](https://github.com/catalyst-monitor/catalyst-examples).
