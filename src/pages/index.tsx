@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import styles from "./index.module.css";
+import InfoPanels from "../components/InfoPanels";
 
 export default function Hello() {
   return (
@@ -8,12 +9,11 @@ export default function Hello() {
       <div className={styles.container}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>
-            Build your web app,
-            <br />
-            <EX>and we'll keep it running.</EX>
+            Web app monitoring for <EX>high-velocity</EX> developers
           </h1>
           <div className={styles.subtitle}>
-            Setup everything you need to monitor and fix breakages in seconds.
+            Get better signal with less toil so you can build faster with peace
+            of mind.
           </div>
           <div className={styles.ctas}>
             <a
@@ -35,92 +35,270 @@ export default function Hello() {
           <img className={styles.mainPreviewScreen} src="/img/ss_home.png" />
         </div>
         <div className={styles.detailsContainer}>
-          <div className={styles.detailRow}>
-            <div className={`${styles.card}`}>
-              <div className={styles.cardTitle}>
-                <div className={styles.emoji}>🚀</div>
-                <h2>More building, less busywork</h2>
-              </div>
-              <p>
-                Sick of cleaning out your error inbox? Or cleaning up harmless
-                errors and logs just because they trigger alerts?
-              </p>
-              <p>
-                Catalyst measures error rates per-endpoint and per-page, so{" "}
-                <EX>you'll only get alerted when user flows are impacted.</EX>{" "}
-                With less interruptions, you get more time to build.
-              </p>
-            </div>
-            <div className={`${styles.detailsScreen}`}>
-              <img src="/img/ss_pages.png" />
-            </div>
+          <div className={styles.detailsPanels}>
+            <InfoPanels
+              panels={[
+                {
+                  header: "Error Rates: the Secret Sauce",
+                  details: (
+                    <>
+                      <p>
+                        With error rates by page and endpoint,{" "}
+                        <EX>
+                          you know exactly where your breakage is, and how
+                          severe it is
+                        </EX>
+                        .
+                      </p>
+                      <p>
+                        This means less work chasing false positives, and more
+                        time building your product. No more cleaning out error
+                        inboxes!
+                      </p>
+                    </>
+                  ),
+                  imageUrl: "/img/ss_pages.png",
+                },
+                {
+                  header: "Breakdown Endpoints and Pages",
+                  details: (
+                    <>
+                      <p>
+                        Get a breakdown of logs and errors on your endpoints and
+                        pages, and a list of sessions with said errors in
+                        context.
+                      </p>
+                      <p>
+                        If your users are experiencing an error, you'll know
+                        exactly which error and how many users are affected.
+                      </p>
+                    </>
+                  ),
+                  imageUrl: "/img/ss_breakdown.png",
+                },
+                {
+                  header: "End-to-end Session Tracking",
+                  details: (
+                    <>
+                      <p>
+                        Track clicks, navigations, backend calls, and errors
+                        across the stack.
+                      </p>
+                      <p>
+                        <EX>Debug faster and better</EX>, with all your
+                        information in context.
+                      </p>
+                    </>
+                  ),
+                  imageUrl: "/img/ss_session.png",
+                },
+                {
+                  header: "Configurable Alerting",
+                  details: (
+                    <>
+                      <p>
+                        Configure error thresholds and traffic minimums so
+                        you'll only get interrupted when you want to.
+                      </p>
+                      <p>
+                        No more wasting time tackling errors that don't actually
+                        affect your users.
+                      </p>
+                    </>
+                  ),
+                  imageUrl: "/img/ss_alerts.png",
+                },
+              ]}
+            />
           </div>
-          <div className={`${styles.detailRow} ${styles.right}`}>
-            <div className={styles.card}>
-              <div className={styles.cardTitle}>
-                <div className={styles.emoji}>🔋</div>
-                <h2>Everything you need, ready in seconds</h2>
+        </div>
+        <div className={styles.comparisonContainer}>
+          <h2>The best option for teams that get stuff done</h2>
+          <div className={styles.comparisonScroll}>
+            <div className={styles.comparison}>
+              <div />
+              <div className={styles.cpnSubject}>Error Monitoring</div>
+              <div className={styles.cpnSubject}>
+                Health Checks / Website Monitoring
               </div>
-              <p>
-                Hate paying for multiple services? Get everything you need to
-                find and fix breakages with Catalyst, including:
-              </p>
-              <ul>
-                <li>End-to-end errors and logs</li>
-                <li>Session tracking</li>
-                <li>Configurable alerting</li>
-                <li>Click tracking</li>
-              </ul>
-              <p>
-                No dedicated SRE or infra teams required.{" "}
-                <EX>You can set up Catalyst in seconds!</EX>
-              </p>
-            </div>
-            <div className={styles.detailsScreen}>
-              <img src="/img/ss_session.png" />
+              <div className={styles.cpnSubject}>
+                <img
+                  className={styles.catalystCompare}
+                  src="/img/logo-with-name.svg"
+                />
+              </div>
+              <div className={styles.cpnFeature}>
+                <div className={styles.featureTitle}>Easy to Setup</div>
+                <div className={styles.featureDesc}>
+                  Is the set up process easy and pain-free?
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  Most services are easy to integrate.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  For most services, you just need to enter a URL.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  You can set up Catalyst in seconds.
+                  <br />
+                  <a href="/docs">Read our docs</a>
+                </div>
+              </div>
+              <div className={styles.cpnFeature}>
+                <div className={styles.featureTitle}>Good Signal</div>
+                <div className={styles.featureDesc}>
+                  Are alert notifications significant and actionable without
+                  false positives?
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.miss}`}>
+                <div className={styles.featureIcon}>❌</div>
+                <div className={styles.featureDesc}>
+                  Transient errors can be unactionable, training engineers to
+                  ignore notifications.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  If a health check can't reach your service, it's likely that
+                  users can't reach your service either.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  With error rates per page and endpoint, you'll only get
+                  notified if users are experiencing issues.
+                </div>
+              </div>
+              <div className={styles.cpnFeature}>
+                <div className={styles.featureTitle}>
+                  Minimizes Maintenance / Toil
+                </div>
+                <div className={styles.featureDesc}>
+                  How much work does it take to keep your monitoring useful?
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.miss}`}>
+                <div className={styles.featureIcon}>❌</div>
+                <div className={styles.featureDesc}>
+                  Error inbox needs to be periodically groomed and cleaned out
+                  in order to be useful.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  As long as you don't mind gaps in coverage, a simple
+                  healthcheck endpoint suffices.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  After initial set-up, no additional work is required to keep
+                  coverage over your entire web app.
+                </div>
+              </div>
+              <div className={styles.cpnFeature}>
+                <div className={styles.featureTitle}>Helps Debug</div>
+                <div className={styles.featureDesc}>
+                  How much work does it take to keep your monitoring useful?
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  Depending on your provider, other information may be collected
+                  to help you debug.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.miss}`}>
+                <div className={styles.featureIcon}>❌</div>
+                <div className={styles.featureDesc}>
+                  Since health checks monitors your service as a blackbox, it
+                  cannot provide any useful debugging info.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>
+                  <div className={styles.featureIcon}>✅</div>
+                </div>
+                <div className={styles.featureDesc}>
+                  Catalyst captures log messages, stack traces, clicks, and
+                  navigations across the stack, so you'll always have context to
+                  debug.
+                </div>
+              </div>
+              <div className={styles.cpnFeature}>
+                <div className={styles.featureTitle}>Comprehensive</div>
+                <div className={styles.featureDesc}>
+                  If any user has an issue, will you be notified?
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>✅</div>
+                <div className={styles.featureDesc}>
+                  Error monitoring services generally record all errors.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.miss}`}>
+                <div className={styles.featureIcon}>❌</div>
+                <div className={styles.featureDesc}>
+                  Health checks don't measure what users actually experience, so
+                  it can easily miss issues for hours or even entirely.
+                </div>
+              </div>
+              <div className={`${styles.cpnResult} ${styles.hit}`}>
+                <div className={styles.featureIcon}>
+                  <div className={styles.featureIcon}>✅</div>
+                </div>
+                <div className={styles.featureDesc}>
+                  Catalyst records the experience of all users, so if any user
+                  has an issue, you'll know.
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className={styles.bottomCtaContainer}>
-          <div className={styles.clientLibText}>
-            <h2>Peace of Mind in Seconds</h2>
-            <p>
-              Your time is important, so Catalyst lets you get actionable data
-              in seconds - no long setup process required.{" "}
-              <a href="/docs" target="_blank">
-                Read the docs.
-              </a>
-            </p>
-          </div>
-          <div className={styles.bottomCtas}>
-            <a
-              className={styles.bottomCta}
-              href="https://app.catalystmonitor.com"
-            >
-              Get it now!
-            </a>
-            <a
-              target="_blank"
-              className={styles.bottomDocs}
-              href="https://calendly.com/chat-bill-liu/catalyst-intro"
-            >
-              Let's Talk
-            </a>
-          </div>
-          <div className={styles.lastDitchLinks}>
-            You can also{" "}
-            <a href="https://discord.gg/YQZy4SXzmX" target="_blank">
-              join our Discord
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc"
-              target="_blank"
-            >
-              sign up for our Newsletter
-            </a>
-            !
-          </div>
+        <div className={styles.bottomCtas}>
+          <a
+            className={styles.bottomCta}
+            href="https://app.catalystmonitor.com"
+          >
+            Get it now!
+          </a>
+          <a
+            target="_blank"
+            className={styles.bottomDocs}
+            href="https://calendly.com/chat-bill-liu/catalyst-intro"
+          >
+            Let's Talk
+          </a>
+        </div>
+        <div className={styles.lastDitchLinks}>
+          You can also{" "}
+          <a href="https://discord.gg/YQZy4SXzmX" target="_blank">
+            join our Discord
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc"
+            target="_blank"
+          >
+            sign up for our Newsletter
+          </a>
+          !
         </div>
         <div
           className={styles.demoContainer}

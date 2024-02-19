@@ -4,7 +4,12 @@ sidebar_position: 1
 
 # Next.js (App Router)
 
-These are the installation instructions for [Next.js](https://nextjs.org/). For other Node.js or web frameworks, checkout our [other installation guides](/docs/category/install-catalyst).
+You can install the client library for [Next.js](https://nextjs.org/) to immediately get the full feature set of Catalyst, including:
+- Frontend navigation, error reporting, and click tracking
+- Server logs, request, and error reporting
+- Session tracking across the stack
+
+For other languages and frameworks, checkout our [other installation guides](/docs/category/install-catalyst).
 
 Before you start, you'll need to sign up for Catalyst and have your keys ready, as detailed [here](/docs/signup).
 

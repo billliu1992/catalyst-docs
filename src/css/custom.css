@@ -17,8 +17,9 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
-  --catalyst-card-color: #FEF7FF;
+  --catalyst-surface-variant: #e1e2ec;
   --catalyst-text-alt: #45464f;
+  --catalyst-outline: #C4C7C5;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -33,7 +34,7 @@
   --ifm-color-primary-lightest: #6a94e9;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
-  --catalyst-card-color: #141218;
+  --catalyst-surface-variant: #e1e2ec;
   --catalyst-text-alt: #CAC4D0;
 }
 
