@@ -19,6 +19,4 @@ If you fall under these criteria, Catalyst aims to be a drop-in monitoring solut
 
 ## Catalyst is under development!
 
-Interfaces are subject to change! Please only use Catalyst if you are okay with a bit of instability.
-
 We are still adding support for libraries and frameworks. If your library and or framework isn't supported, feel free to reach out either [through e-mail](mailto:bill@privium.xyz) or [via Discord](https://discord.gg/YQZy4SXzmX).

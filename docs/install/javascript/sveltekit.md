@@ -89,7 +89,7 @@ export const handle = sequence(
 )
 ```
 
-## 2. Add the Catalyst component
+## 3. Add the Catalyst component
 
 As soon as possible, add the `Catalyst` component. This component will ensure navigation client-side is captured. We recommend adding this in the root `+layout.svelte`, if possible.
 

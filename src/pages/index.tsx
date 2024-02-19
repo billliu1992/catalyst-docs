@@ -186,7 +186,8 @@ export default function Hello() {
                   Minimizes Maintenance / Toil
                 </div>
                 <div className={styles.featureDesc}>
-                  How much work does it take to keep your monitoring useful?
+                  Does the service work without needing constant attention and
+                  upkeep?
                 </div>
               </div>
               <div className={`${styles.cpnResult} ${styles.miss}`}>
@@ -213,7 +214,7 @@ export default function Hello() {
               <div className={styles.cpnFeature}>
                 <div className={styles.featureTitle}>Helps Debug</div>
                 <div className={styles.featureDesc}>
-                  How much work does it take to keep your monitoring useful?
+                  Does the service help you fix issues after identifying them?
                 </div>
               </div>
               <div className={`${styles.cpnResult} ${styles.hit}`}>
@@ -241,7 +242,9 @@ export default function Hello() {
                 </div>
               </div>
               <div className={styles.cpnFeature}>
-                <div className={styles.featureTitle}>Comprehensive</div>
+                <div className={styles.featureTitle}>
+                  Comprehensive Coverage
+                </div>
                 <div className={styles.featureDesc}>
                   If any user has an issue, will you be notified?
                 </div>
