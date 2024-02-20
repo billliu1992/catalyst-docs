@@ -232,9 +232,7 @@ export default function Hello() {
                 </div>
               </div>
               <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>
-                  <div className={styles.featureIcon}>✅</div>
-                </div>
+                <div className={styles.featureIcon}>✅</div>
                 <div className={styles.featureDesc}>
                   Catalyst captures log messages, stack traces, clicks, and
                   navigations across the stack, so you'll always have context to
@@ -263,9 +261,7 @@ export default function Hello() {
                 </div>
               </div>
               <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>
-                  <div className={styles.featureIcon}>✅</div>
-                </div>
+                <div className={styles.featureIcon}>✅</div>
                 <div className={styles.featureDesc}>
                   Catalyst records the experience of all users, so if any user
                   has an issue, you'll know.
