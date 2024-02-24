@@ -73,40 +73,18 @@ export default function Layout({
 
 ## Propagate Session Info
 
-Replace `fetch(...)` calls with the provided functions detailed below. This will ensure session info is correctly propagated.
+To ensure session info is correctly propagated, simply replace `fetch(...)` calls to servers with the provided `catalystNextJSFetch`. If the backend has Catalyst installed, then the request will be associated with the calling session. `catalystNextJSFetch` will work inside both server and client components.
 
-Note that both functions have the same interface as `fetch`, so you can simply drop the new functions in.
+Note that `catalystNextJSFetch` has the same interface as `fetch`, so you can simply drop the new function in.
 
-### Server Components
+```ts title="api.ts"
+import { catalystNextJSFetch as cFetch } from '@catalyst-monitor/nextjs'
 
-Use `catalystNodeFetch` in server components.
-
-```tsx title="page.tsx"
-import { catalystNodeFetch as cFetch } from '@catalyst-monitor/nextjs/server'
-
-export default async function Page() {
-  const resp = await cFetch("/api/widget/123")
-  // ... rest of your component code
-}
+await cFetch("https://.../api/widget/123", {
+  method: method,
+})
 ```
 
-### Client Components
-
-Use `catalystWebFetch` in client components.
-
-```tsx title="page.tsx"
-'use client'
-
-import { catalystWebFetch as cFetch } from '@catalyst-monitor/nextjs/client'
-
-export default function Page() {
-  useEffect(() => {
-    const resp = await cFetch("/api/widget/123")
-    // ...
-  }, [])
-  // ... rest of your component code
-}
-```
 
 ## Limitations
 

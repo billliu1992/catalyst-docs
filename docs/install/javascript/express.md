@@ -59,14 +59,14 @@ app.use(catalystErrorHandler)
 
 ## Propagate Session Info
 
-Replace `fetch(...)` calls to servers with Catalyst installed with the provided `catalystNodeFetch`. This will ensure session info is correctly propagated.
+To ensure session info is correctly propagated, simply replace `fetch(...)` calls to servers with the provided `catalystNodeFetch`. If the backend has Catalyst installed, then the request will be associated with the calling session.
 
 Note that `catalystNodeFetch` has the same interface as `fetch`, so you can simply drop the new function in.
 
 ```ts title="api.ts"
 import { catalystNodeFetch as cFetch } from '@catalyst-monitor/core/node'
 
-await cFetch("/api/widget/123", {
+await cFetch("https://.../api/widget/123", {
   method: method,
 })
 ```
