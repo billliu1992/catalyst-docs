@@ -45,15 +45,14 @@ const config: Config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
             */
         },
-        /*
+
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          // editUrl:
+          //  "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
-        */
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -85,6 +84,7 @@ const config: Config = {
           to: "pricing",
           position: "left",
         },
+        { to: "/blog", label: "Blog", position: "left" },
         {
           "aria-label": "Join our Discord",
           href: "https://discord.gg/YQZy4SXzmX",
@@ -97,7 +97,6 @@ const config: Config = {
           position: "right",
           className: "navbar--github-link",
         },
-        /* { to: "/blog", label: "Blog", position: "left" }, */
         {
           href: "https://app.catalystmonitor.com",
           position: "right",
@@ -118,6 +117,10 @@ const config: Config = {
             {
               label: "Documentation",
               to: "/docs",
+            },
+            {
+              label: "Blog",
+              to: "/blog",
             },
             {
               label: "Pricing",
@@ -155,12 +158,6 @@ const config: Config = {
               label: "Talk to us!",
               href: "https://calendly.com/chat-bill-liu/catalyst-intro",
             },
-            /*
-            {
-              label: "Blog",
-              to: "/blog",
-            },
-            */
             {
               label: "GitHub",
               href: "https://github.com/catalyst-monitor",
@@ -168,6 +165,10 @@ const config: Config = {
             {
               label: "Discord",
               href: "https://discord.gg/YQZy4SXzmX",
+            },
+            {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/company/catalystmonitor/",
             },
             {
               label: "Newsletter",

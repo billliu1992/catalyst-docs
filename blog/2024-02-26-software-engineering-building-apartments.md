@@ -1,0 +1,56 @@
+---
+slug: software-engineering-is-more-like-building-apartments-than-cathedrals
+title: Software engineering is more like building apartments than cathedrals
+authors: bill
+tags: [software, engineering, time, quality, craftsmanship]
+---
+
+Posts romanticizing the act of coding always does well, what about the opposite? In this post I will ~commit coder blasphemy~ discuss:
+- The business realities of software, and why for most cases building faster is almost always better than building perfect
+- Why "quality" software is not mutually exclusive with building fast
+- How valuable engineers build fast **and** with quality
+
+<!--truncate-->
+
+Coding takes skill, and a better coder writes software that's easier to work on and maintain. To someone who doesn't know code, it's easy to see this gap as unexplainable like how only some rock stars make millions. And to the rock star coder, they understandably begin to see their work as art, like building the Notre Dame [\[1\]][A1] [\[2\]][A2]. But the market has never rewarded rock stars (dotcom bubble was a bubble for a reason!), and that's because for the most part building software is more like building apartment buildings: boringly designed and the only thing that matters is how fast you're building them.
+
+[A1]: https://news.ycombinator.com/item?id=36523571
+[A2]: https://news.ycombinator.com/item?id=35678278
+
+> Cooking is a craft, I like to think, and a good cook is a craftsman-not an artist. There's nothing wrong with that: the great cathedrals of Europe were built by craftsmen-though not designed by them. Practicing your craft in expert fashion is noble, honorable and satisfying. And I'll generally take a stand-up mercenary who takes pride in his professionalism over an artist any day.
+> 
+> \- *Kitchen Confidential* - Anthony Bourdain
+
+So how does the market for software work? Software is relatively unique in that switching to the better option is relatively easy (minus business contracts) and companies can service near infinite customers with relatively little investment. Imagine if all pizza places can deliver anywhere into the world instantly at every hour of the day. Would anyone ever settle for bad pizza? This is the reality for software, and thus it's impossible in the long term for two competitors to exist in the same market.
+
+But isn't there a lot of cases where multiple competitors coexist? What about Slack, Teams, and Discord? In reality, seemingly similar competitors only coexist either because they serve different niche markets or a loser is propped up by VC funding and long business contracts. In the given example, Discord serves a distinctly separate niche, while Slack [sold to Salesforce](https://www.theverge.com/22150313/how-microsoft-crushed-slack-salesforce-acquisition) after Microsoft started winning the enterprise clients.
+
+So where are these profitable market niches? Until the market is proven through success, **nobody** knows where these profitable market niches do and don't exist. Not even your friend Greg who's really smart and has the best app idea. Some people are better informed, but in the end nobody can definitely say.
+
+So if no one knows, then how do you make money? You test the market iteratively - a lot. That's why VCs throw money at a lot of different companies in search of outsized returns. It's not just VCs either, large tech companies constantly fund unprofitable projects unrelated to their money-maker in search of new profitable markets to justify their valuation. Indie hackers commit to 12 projects in 12 months. Everybody is basically [hiring monkeys until they get _A Tale of Two Cities_](https://en.wikipedia.org/wiki/Infinite_monkey_theorem_in_popular_culture)
+
+> We were Snapchat before Snapchat. But then, Snapchat launched Stories, and when they launched Stories I was like, "Oh shit, that's like what we're building but *way* better, *and* they released it before us. So like, we were Snapchat before Snapchat, but we were also Snapchat after Snapchat \[Laughs\]. It's like, "Look Snapchat users, I know you love your product and I know it's great, but we got something worse for you, just give us a few more months."
+> 
+> \- Casey Neistat, talking about BEME on Steve-O's Wild Ride ([YouTube](https://www.youtube.com/watch?v=SU5PRsSvo2E))
+
+So what does this mean as an engineer? The most valuable thing you can do is give your team more tries at beating the competitors to the market, and the best way to do that is to simply be okay with good enough and implement features faster. It doesn't need to be perfect, other engineers don't need to be in awe of your code, it just needs to fulfill a market demand.
+
+But doesn't good software take time [\[3\]][3] [\[4\]][4]? To build faster, should we forsake code quality? No, but I think it first makes sense define "quality." When some engineers judge "good" code they judge based on vibes, where code is "unreadable" because it's either not implemented using their favorite pattern, naming convention, or the judge in question is simply bad at reading code. In my opinion, wasting time arguing over pedantic vibes-based quality is useless.
+
+[3]: https://www.joelonsoftware.com/2001/07/21/good-software-takes-ten-years-get-used-to-it/
+[4]: https://www.reddit.com/r/programming/comments/uu5a5k/why_building_software_takes_time/
+
+> When I hear 'artist', I think of someone who doesn't think it necessary to show up at work on time. More often than not their efforts, convinced as they are of their own genius, are geared more to giving themselves a hard-on than satisfying the great majority of dinner customers. Personally, I'd prefer to eat food that tastes good and is an honest reflection of its ingredients, than a 3-foot-tall caprice constructed from lemon grass, lawn trimmings, coconuts and red curry. You could lose an eye trying to eat that. When a job applicant starts telling me how Pacific Rim-job cuisine turns him on and inspires him, I see trouble coming.
+> - *Kitchen Confidential* - Anthony Bourdain
+
+Instead, quality code can be judged based on how simple it is in terms of state and abstraction. Simple state and abstraction means the code can be faster to iterate on (or, "easier to change" according to the [Pragmatic Programmer](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)). In that sense, the value of quality code isn't just saving time when first writing, but also saving time down the line when iterating. 
+
+But the skill of software engineering does not simply stop at writing code. A good software engineer can also arguably provide more value by saving time in processes. Are code reviews fruitful discussions or pedantic arguing? Is CI/CD being utilized or are releases multi-hour affairs? Is prod covered by monitoring, or is everybody manually testing every release? And just like code, there's a sweet spot: building out the Notre Dame of ops and infra doesn't bring much value either.
+
+So, you can have your quality and build fast. But actually, that's not a secret at all. In 2014 Meta famously changed their motto from "move fast and break things" to "move fast with stable infrastructure." And it's only getting faster - even in 1986, Fred Brook in his famous "No Silver Bullet" shows how the market has reduced "accidental complexity," incrementally speeding up development. The 10x silver bullet still hasn't been found, but your competitors don't need a silver bullet to conquer the market, they just need to beat you.
+
+_Have some comments? Want to flame the author? Come join our [Discord][https://discord.gg/YQZy4SXzmX]. Want to keep up with future posts? Sign up for our [newsletter][https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc]._
+
+**Appendum - the innate innovation of software engineers**
+
+But what about the innovation of software enginners? Aren't they these creative forces-of-nature that are hampered by deadlines and managers? Wouldn't it provide more value to simply let them cook instead of asking them for deadlines? Unfortunately being smart and simply building something cool is not a shortcut to make money. You still need to contend with the market, which sometimes have no use for the things you build. However, as a software engineer, I would love to be proven wrong.
