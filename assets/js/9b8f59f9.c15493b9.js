@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcodebase_doctor_docs=self.webpackChunkcodebase_doctor_docs||[]).push([[6099],{1862:e=>{e.exports=JSON.parse('{"label":"time","permalink":"/blog/tags/time","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
