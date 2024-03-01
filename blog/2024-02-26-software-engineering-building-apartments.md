@@ -51,6 +51,6 @@ So, you can have your quality and build fast. But actually, that's not a secret 
 
 _Have some comments? Want to flame the author? Come join our [Discord][https://discord.gg/YQZy4SXzmX]. Want to keep up with future posts? Sign up for our [newsletter][https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc]._
 
-**Appendum - the innate innovation of software engineers**
+**Side note - the innate innovation of software engineers**
 
-But what about the innovation of software enginners? Aren't they these creative forces-of-nature that are hampered by deadlines and managers? Wouldn't it provide more value to simply let them cook instead of asking them for deadlines? Unfortunately being smart and simply building something cool is not a shortcut to make money. You still need to contend with the market, which sometimes have no use for the things you build. However, as a software engineer, I would love to be proven wrong.
+But what about the innovation of software engineers? Aren't they these creative forces-of-nature that are hampered by deadlines and managers? Wouldn't it provide more value to simply let them cook instead of asking them for deadlines? Unfortunately being smart and simply building something cool is not a shortcut to make money. You still need to contend with the market, which sometimes have no use for the things you build. However, as a software engineer, I would love to be proven wrong.
