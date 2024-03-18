@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcodebase_doctor_docs=self.webpackChunkcodebase_doctor_docs||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Software engineering is more like building apartments than cathedrals","permalink":"/blog/software-engineering-is-more-like-building-apartments-than-cathedrals","unlisted":false}]}')}}]);
