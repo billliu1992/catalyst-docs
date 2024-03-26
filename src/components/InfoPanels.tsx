@@ -5,7 +5,7 @@ export default function InfoPanels({
   panels,
 }: {
   panels: {
-    header: string;
+    header: React.ReactNode;
     details: React.ReactNode;
     imageUrl: string;
   }[];

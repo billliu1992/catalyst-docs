@@ -9,11 +9,11 @@ export default function Hello() {
       <div className={styles.container}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>
-            Web app monitoring for <EX>high-velocity</EX> developers
+            Not getting value out of your current monitoring?
           </h1>
           <div className={styles.subtitle}>
-            Get better signal with less toil so you can build faster with peace
-            of mind.
+            Catalyst is monitoring for <EX>high-velocity</EX> developers who
+            want a <EX>better signal</EX> with <EX>less toil</EX>.
           </div>
           <div className={styles.ctas}>
             <a
@@ -39,7 +39,11 @@ export default function Hello() {
             <InfoPanels
               panels={[
                 {
-                  header: "Error Rates: the Secret Sauce",
+                  header: (
+                    <>
+                      Error Rates: the <EX>Secret Sauce</EX>
+                    </>
+                  ),
                   details: (
                     <>
                       <p>
@@ -60,7 +64,7 @@ export default function Hello() {
                   imageUrl: "/img/ss_pages.png",
                 },
                 {
-                  header: "Breakdown Endpoints and Pages",
+                  header: <>Monitor and debug with breakdowns</>,
                   details: (
                     <>
                       <p>
@@ -77,7 +81,7 @@ export default function Hello() {
                   imageUrl: "/img/ss_breakdown.png",
                 },
                 {
-                  header: "End-to-end Session Tracking",
+                  header: "Track session end-to-end",
                   details: (
                     <>
                       <p>
@@ -93,7 +97,7 @@ export default function Hello() {
                   imageUrl: "/img/ss_session.png",
                 },
                 {
-                  header: "Configurable Alerting",
+                  header: "Configure your alerting",
                   details: (
                     <>
                       <p>
