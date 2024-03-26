@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcodebase_doctor_docs=self.webpackChunkcodebase_doctor_docs||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Clever software engineering won\'t save your company","permalink":"/blog/clever-software-engineering-wont-save-your-company","unlisted":false}]}')}}]);
