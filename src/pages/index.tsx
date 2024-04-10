@@ -25,9 +25,9 @@ export default function Hello() {
             <a
               className={styles.mainDocs}
               target="_blank"
-              href="https://calendly.com/chat-bill-liu/catalyst-intro"
+              href="https://app.catalystmonitor.com/o/9c5f882c-fb76-4583-97d6-6c83eb382faf"
             >
-              Let's Talk
+              Play with a live demo
             </a>
           </div>
         </div>
@@ -284,9 +284,9 @@ export default function Hello() {
           <a
             target="_blank"
             className={styles.bottomDocs}
-            href="https://calendly.com/chat-bill-liu/catalyst-intro"
+            href="https://app.catalystmonitor.com/o/9c5f882c-fb76-4583-97d6-6c83eb382faf"
           >
-            Let's Talk
+            Play with a live demo
           </a>
         </div>
         <div className={styles.lastDitchLinks}>

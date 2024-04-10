@@ -11,16 +11,49 @@ export default function Hello() {
       <div className={styles.content}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>Catalyst Pricing</h1>
+          <div className={styles.freeNoteContainer}>
+            <div className={styles.freeNote}>
+              <div className={styles.freeNoteTitle}>Note</div>
+              <p>
+                <strong>
+                  As of right now, we are not collecting payment from users
+                </strong>
+                . While we do eventually plan on charging (hosting costs
+                money!), we'd rather focus on improving the product than
+                collecting payment.
+              </p>
+              <p>
+                For now,{" "}
+                <strong>
+                  feel free to use the product as you wish, completely free, no
+                  credit card required
+                </strong>
+                . We will give you ample warning in our{" "}
+                <a
+                  href="https://cdn.forms-content.sg-form.com/b8ee284e-7912-11ee-be05-767cd0f2f8cc"
+                  target="_blank"
+                >
+                  newsletter
+                </a>{" "}
+                when we start charging. If you have any questions, or want to
+                talk about an enterprise use-case, feel free to{" "}
+                <a href="https://calendly.com/chat-bill-liu/catalyst-intro">
+                  reach out directly
+                </a>
+                .
+              </p>
+            </div>
+          </div>
           <div className={styles.tiers}>
             <PricingTier
               name="Hobbyist"
               description="Your hobby project won't break without you knowing."
-              pricing="$0"
+              pricing={<span className={styles.priceAmount}>Free</span>}
               features={[
+                "No credit card required",
                 "1 user",
-                "30 day data retention",
-                "10k events",
-                "15 alerts",
+                "3GB data included",
+                "15 day retention",
               ]}
             >
               <a
@@ -33,32 +66,11 @@ export default function Hello() {
             <PricingTier
               name="Professional"
               description="For projects with regular users and customers."
-              pricing="$25"
-              monthlyPricing="$30"
+              pricing={<span className={styles.priceAmount}>See Note</span>}
               features={[
-                "1 user (+$5 per user)",
-                "90 day data retention",
-                "250k events",
-                "Unlimited alerts",
-              ]}
-            >
-              <a
-                className={styles.primaryCta}
-                href="https://app.catalystmonitor.com"
-              >
-                Start Free Trial
-              </a>
-            </PricingTier>
-            <PricingTier
-              name="Business"
-              description="Get alerted to breakages business-wide. Build your brand on well-built products!"
-              pricing="$75"
-              monthlyPricing="$85"
-              features={[
-                "15 users (+$5 per user)",
-                "90 day data retention",
-                "750k events",
-                "Unlimited alerts",
+                "Unlimited users",
+                "15GB data included",
+                "30 day data retention",
               ]}
             >
               <a
@@ -71,11 +83,11 @@ export default function Hello() {
             <PricingTier
               name="Enterprise"
               description="Make Catalyst work for your business!"
-              pricing="Custom"
+              pricing={<span className={styles.priceAmount}>See Note</span>}
               features={[
-                "Unlimited user",
+                "Unlimited users",
                 "Custom data retention",
-                "Custom event limit",
+                "Custom data limit",
                 "Premium Support and SLAs",
               ]}
             >
@@ -131,14 +143,12 @@ export default function Hello() {
 function PricingTier({
   name,
   pricing,
-  monthlyPricing,
   description,
   features,
   children,
 }: {
   name: string;
-  pricing: string;
-  monthlyPricing?: string;
+  pricing: React.ReactNode;
   description: string;
   features: string[];
   children: React.ReactNode;
@@ -148,13 +158,7 @@ function PricingTier({
       <div>
         <div className={styles.tierName}>{name}</div>
         <div className={styles.description}>{description}</div>
-        <div className={styles.price}>
-          <span className={styles.priceAmount}>{pricing}</span>{" "}
-          <span className={styles.priceUnit}>/mo</span>{" "}
-          {monthlyPricing != null ? (
-            <span className={styles.priceUnit}>billed annually</span>
-          ) : null}
-        </div>
+        <div className={styles.price}>{pricing}</div>
         <ul className={styles.features}>
           {features.map((f, idx) => (
             <li key={idx} className={styles.feature}>
@@ -163,14 +167,7 @@ function PricingTier({
           ))}
         </ul>
       </div>
-      <div>
-        {monthlyPricing != null ? (
-          <div className={styles.monthlyDisclaimer}>
-            * or {monthlyPricing} billed monthly
-          </div>
-        ) : null}
-        {children}
-      </div>
+      <div>{children}</div>
     </div>
   );
 }

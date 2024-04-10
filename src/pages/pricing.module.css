@@ -1,6 +1,6 @@
 .content {
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 0 128px;
 }
@@ -23,9 +23,29 @@
     }
 }
 
+.freeNote {
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: var(--catalyst-surface-variant);
+    color: #000;
+}
+
+.freeNoteTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 var(--ifm-paragraph-margin-bottom);
+}
+
+@media (max-width: 500px) {
+    .freeNoteContainer {
+        padding: 0 8px;
+    }
+}
+
 .tiers {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 8px;
     place-content: center;
 }

@@ -159,6 +159,10 @@ const config: Config = {
               href: "https://calendly.com/chat-bill-liu/catalyst-intro",
             },
             {
+              label: "Play with a live demo",
+              href: "https://app.catalystmonitor.com/o/9c5f882c-fb76-4583-97d6-6c83eb382faf",
+            },
+            {
               label: "GitHub",
               href: "https://github.com/catalyst-monitor",
             },
