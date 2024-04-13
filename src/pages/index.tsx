@@ -203,12 +203,12 @@ export default function Hello() {
                 {
                   isHit: true,
                   title: "A lot of features",
-                  desc: "It has a lot of features for if you know what you're doing and have the time to set everything up.",
+                  desc: "Has a lot features - useful if you know what you're doing and have the time to set everything up.",
                 },
                 {
                   isHit: false,
                   title: "No value out-of-the-box",
-                  desc: "A lot of metrics isn't inherently useful! You must configure dashboards and write queries before getting value.",
+                  desc: "Having a lot of metrics isn't inherently useful! You must configure dashboards and write queries before getting value.",
                 },
                 {
                   isHit: false,
