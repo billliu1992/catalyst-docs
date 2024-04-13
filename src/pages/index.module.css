@@ -90,6 +90,17 @@
         aspect-ratio: unset;
         padding-bottom: 24px;
     }
+
+    .ctas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mainDocs {
+        margin: 12px 0 0 0;
+    }
 }
 
 .detailsContainer {
@@ -121,9 +132,82 @@
     margin: 0 0 36px;
 }
 
-.comparisonScroll {
-    padding: 0 24px;
+.comparisonOptions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 24px;
+    padding: 0 12px;
+    box-sizing: border-box;
     overflow-x: auto;
+}
+
+.resultsContainer {
+    min-width: 275px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.compareHeader {
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.compareTitle {
+    font-weight: bold;
+    text-align: center;
+}
+
+.resultHeader {
+    display: flex;
+    align-items: center;
+}
+
+.resultTitle {
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.compareDesc {
+    text-align: center;
+    font-size: 14px;
+}
+
+.compareResult {
+    padding: 12px 24px;
+}
+
+.compareResult:first-child {
+    border-top: none;
+    padding-top: 24px;
+}
+
+.compareResult:last-child {
+    border-top: none;
+    padding-bottom: 24px;
+}
+
+.compareResult.hit {
+    background-color: #eefaeb;
+}
+
+.compareResult.miss {
+    background-color: #fbe9e9;
+}
+
+[data-theme="dark"] .compareResult.hit {
+    background: #20321b;
+}
+
+[data-theme="dark"] .compareResult.miss {
+    background: #3d2929;
+}
+
+.resultDesc {
+    margin-top: 2px;
+    font-size: 14px;
 }
 
 .comparison {
@@ -131,17 +215,7 @@
     display: grid;
     row-gap: 12px;
     column-gap: 12px;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.cpnSubject {
-    font-weight: bold;
-    justify-self: center;
-    align-self: flex-start;
-}
-
-[data-theme="dark"] .cpnSubject {
-    align-self: center;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .catalystCompare {
@@ -153,52 +227,6 @@
     padding: 8px 12px;
     width: 124px;
     border-radius: 8px;
-}
-
-.cpnResult {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    background-color: var(--catalyst-surface-variant);
-    border-radius: 8px;
-    padding: 12px;
-}
-
-.cpnResult.hit {
-    background-color: #eefaeb;
-}
-
-.cpnResult.miss {
-    background-color: #fbe9e9;
-}
-
-[data-theme="dark"] .cpnResult.hit {
-    background: #20321b;
-}
-
-[data-theme="dark"] .cpnResult.miss {
-    background: #3d2929;
-}
-
-.cpnFeature {
-    align-self: center;
-}
-
-.featureTitle {
-    font-weight: bold;
-}
-
-.featureDesc {
-    font-size: 14px;
-    color: var(--catalyst-text-alt);
-}
-
-.featureIcon {
-    text-align: center;
-    font-size: 22px;
-    box-sizing: border-box;
-    padding-bottom: 8px;
 }
 
 .bottomCta {
@@ -220,6 +248,19 @@
     font-size: 24px;
     margin-left: 24px;
     display: inline-block;
+}
+
+@media (max-width: 500px) {
+    .bottomCtas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bottomDocs {
+        margin: 12px 0 0 0;
+    }
 }
 
 .lastDitchLinks {

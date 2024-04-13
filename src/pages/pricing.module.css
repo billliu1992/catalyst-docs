@@ -32,6 +32,7 @@
 }
 
 .freeNoteTitle {
+    text-align: center;
     font-size: 18px;
     font-weight: bold;
     margin: 0 0 var(--ifm-paragraph-margin-bottom);
@@ -96,7 +97,7 @@
 }
 
 .tier ul {
-    border-top: 1px solid #C4C7C5;
+    border-top: 1px solid var(--catalyst-outline);
     margin: 12px 0 24px 0;
     padding: 12px 0 0 0;
     list-style-type: none

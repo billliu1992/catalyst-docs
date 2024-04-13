@@ -9,11 +9,11 @@ export default function Hello() {
       <div className={styles.container}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>
-            Not getting value out of your current monitoring?
+            Monitoring that works out-of-the-box
           </h1>
           <div className={styles.subtitle}>
-            Catalyst is monitoring for <EX>high-velocity</EX> developers who
-            want a <EX>better signal</EX> with <EX>less toil</EX>.
+            Not getting value out of your current monitoring? Get{" "}
+            <EX>better signal</EX> using <EX>less effort</EX> with Catalyst.
           </div>
           <div className={styles.ctas}>
             <a
@@ -41,7 +41,7 @@ export default function Hello() {
                 {
                   header: (
                     <>
-                      Error Rates: the <EX>Secret Sauce</EX>
+                      <EX>Error Rates</EX> - the Metric You Need
                     </>
                   ),
                   details: (
@@ -49,43 +49,50 @@ export default function Hello() {
                       <p>
                         With error rates by page and endpoint,{" "}
                         <EX>
-                          you know exactly where your breakage is, and how
-                          severe it is
+                          you know exactly where and how severe your breakage is
                         </EX>
-                        .
+                        . Spend less time chasing false positives, and no time
+                        cleaning out error inboxes!
                       </p>
                       <p>
-                        This means less work chasing false positives, and more
-                        time building your product. No more cleaning out error
-                        inboxes!
+                        You get this out-of-the-box with Catalyst,{" "}
+                        <EX>no manual instrumentation or configuration</EX>.
                       </p>
                     </>
                   ),
                   imageUrl: "/img/ss_pages.png",
                 },
                 {
-                  header: <>Monitor and debug with breakdowns</>,
+                  header: (
+                    <>
+                      Everything You Need to <EX>Debug</EX>
+                    </>
+                  ),
                   details: (
                     <>
                       <p>
-                        Get a breakdown of logs and errors on your endpoints and
-                        pages, and a list of sessions with said errors in
-                        context.
+                        Don't want to pay for another service? Good news, you
+                        don't have to.
                       </p>
                       <p>
-                        If your users are experiencing an error, you'll know
-                        exactly which error and how many users are affected.
+                        Get a breakdown of logs and errors on your endpoints and
+                        pages, and a list of sessions with said errors in
+                        context. Track down issues with ease.
                       </p>
                     </>
                   ),
                   imageUrl: "/img/ss_breakdown.png",
                 },
                 {
-                  header: "Track session end-to-end",
+                  header: (
+                    <>
+                      <EX>End-to-End</EX> Coverage
+                    </>
+                  ),
                   details: (
                     <>
                       <p>
-                        Track clicks, navigations, backend calls, and errors
+                        Track clicks, navigation, backend calls, and errors
                         across the stack.
                       </p>
                       <p>
@@ -97,16 +104,21 @@ export default function Hello() {
                   imageUrl: "/img/ss_session.png",
                 },
                 {
-                  header: "Configure your alerting",
+                  header: (
+                    <>
+                      <EX>Alerted</EX> for every issue
+                    </>
+                  ),
                   details: (
                     <>
                       <p>
-                        Configure error thresholds and traffic minimums so
-                        you'll only get interrupted when you want to.
+                        By monitoring the symptoms, you'll get actionable and
+                        comprehensive alerts. No false positives, and no missing
+                        issues.
                       </p>
                       <p>
-                        No more wasting time tackling errors that don't actually
-                        affect your users.
+                        No need to pay for another alerting service either,
+                        we'll let you know when there's an issue!
                       </p>
                     </>
                   ),
@@ -117,161 +129,129 @@ export default function Hello() {
           </div>
         </div>
         <div className={styles.comparisonContainer}>
-          <h2>The best option for teams that get stuff done</h2>
-          <div className={styles.comparisonScroll}>
-            <div className={styles.comparison}>
-              <div />
-              <div className={styles.cpnSubject}>Error Monitoring</div>
-              <div className={styles.cpnSubject}>
-                Health Checks / Website Monitoring
-              </div>
-              <div className={styles.cpnSubject}>
+          <h2>The best option for teams that move fast</h2>
+          <div className={styles.comparisonOptions}>
+            <Option
+              title={
                 <img
                   className={styles.catalystCompare}
                   src="/img/logo-with-name.svg"
+                  alt="Catalyst"
                 />
-              </div>
-              <div className={styles.cpnFeature}>
-                <div className={styles.featureTitle}>Easy to Setup</div>
-                <div className={styles.featureDesc}>
-                  Is the set up process easy and pain-free?
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  Most services are easy to integrate.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  For most services, you just need to enter a URL.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  You can set up Catalyst in seconds.
-                  <br />
-                  <a href="/docs">Read our docs</a>
-                </div>
-              </div>
-              <div className={styles.cpnFeature}>
-                <div className={styles.featureTitle}>Good Signal</div>
-                <div className={styles.featureDesc}>
-                  Are alert notifications significant and actionable without
-                  false positives?
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.miss}`}>
-                <div className={styles.featureIcon}>❌</div>
-                <div className={styles.featureDesc}>
-                  Transient errors can be unactionable, training engineers to
-                  ignore notifications.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  If a health check can't reach your service, it's likely that
-                  users can't reach your service either.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  With error rates per page and endpoint, you'll only get
-                  notified if users are experiencing issues.
-                </div>
-              </div>
-              <div className={styles.cpnFeature}>
-                <div className={styles.featureTitle}>
-                  Minimizes Maintenance / Toil
-                </div>
-                <div className={styles.featureDesc}>
-                  Does the service work without needing constant attention and
-                  upkeep?
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.miss}`}>
-                <div className={styles.featureIcon}>❌</div>
-                <div className={styles.featureDesc}>
-                  Error inbox needs to be periodically groomed and cleaned out
-                  in order to be useful.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  As long as you don't mind gaps in coverage, a simple
-                  healthcheck endpoint suffices.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  After initial set-up, no additional work is required to keep
-                  coverage over your entire web app.
-                </div>
-              </div>
-              <div className={styles.cpnFeature}>
-                <div className={styles.featureTitle}>Helps Debug</div>
-                <div className={styles.featureDesc}>
-                  Does the service help you fix issues after identifying them?
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  Depending on your provider, other information may be collected
-                  to help you debug.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.miss}`}>
-                <div className={styles.featureIcon}>❌</div>
-                <div className={styles.featureDesc}>
-                  Since health checks monitors your service as a blackbox, it
-                  cannot provide any useful debugging info.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  Catalyst captures log messages, stack traces, clicks, and
-                  navigations across the stack, so you'll always have context to
-                  debug.
-                </div>
-              </div>
-              <div className={styles.cpnFeature}>
-                <div className={styles.featureTitle}>
-                  Comprehensive Coverage
-                </div>
-                <div className={styles.featureDesc}>
-                  If any user has an issue, will you be notified?
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  Error monitoring services generally record all errors.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.miss}`}>
-                <div className={styles.featureIcon}>❌</div>
-                <div className={styles.featureDesc}>
-                  Health checks don't measure what users actually experience, so
-                  it can easily miss issues for hours or even entirely.
-                </div>
-              </div>
-              <div className={`${styles.cpnResult} ${styles.hit}`}>
-                <div className={styles.featureIcon}>✅</div>
-                <div className={styles.featureDesc}>
-                  Catalyst records the experience of all users, so if any user
-                  has an issue, you'll know.
-                </div>
-              </div>
-            </div>
+              }
+              results={[
+                {
+                  isHit: true,
+                  title: "Set up in seconds",
+                  desc: (
+                    <>
+                      Check out our{" "}
+                      <a href="/docs" target="_blank">
+                        docs
+                      </a>
+                      !
+                    </>
+                  ),
+                },
+                {
+                  isHit: true,
+                  title: "Value right away",
+                  desc: "Sensible defaults means no long setup or configuration before seeing value.",
+                },
+                {
+                  isHit: true,
+                  title: "Actionable alerting",
+                  desc: "By monitoring error rates per-endpoint and per-page, your alerts will be actionable and comprehensive. Never miss an issue!",
+                },
+                {
+                  isHit: true,
+                  title: "Less training required",
+                  desc: "Simple and doesn't introduce new concepts so your whole company can find value - no playbook required.",
+                },
+                {
+                  isHit: true,
+                  title: "Everything you need",
+                  desc: "Covers your entire stack and gathers errors and logs. No need to buy another service!",
+                },
+              ]}
+            />
+            <Option
+              title="Sentry"
+              desc="& other error monitoring"
+              results={[
+                {
+                  isHit: true,
+                  title: "Easy setup",
+                  desc: "Many client libraries available.",
+                },
+                {
+                  isHit: false,
+                  title: "Noisy alerts",
+                  desc: "Noisy alerts are ineffective alerts. Errors don't always correspond with issues, so engineers quickly learn to ignore the alerts!",
+                },
+                {
+                  isHit: false,
+                  title: "Constant maintenance required",
+                  desc: "The error inbox needs to be constantly groomed to be useful.",
+                },
+              ]}
+            />
+            <Option
+              title="Datadog"
+              desc="& other observability platforms"
+              results={[
+                {
+                  isHit: true,
+                  title: "A lot of features",
+                  desc: "It has a lot of features for if you know what you're doing and have the time to set everything up.",
+                },
+                {
+                  isHit: false,
+                  title: "No value out-of-the-box",
+                  desc: "A lot of metrics isn't inherently useful! You must configure dashboards and write queries before getting value.",
+                },
+                {
+                  isHit: false,
+                  title: "Instrument your own metrics",
+                  desc: "You'll need to instrument certain metrics yourself. You won't get error rates per endpoint out-of-the-box!",
+                },
+                {
+                  isHit: false,
+                  title: "Nontrivial setup process",
+                  desc: "You'll need to run the agent as a sidecar process and install the client libraries.",
+                },
+                {
+                  isHit: false,
+                  title: "Expensive",
+                  desc: "",
+                },
+              ]}
+            />
+            <Option
+              title="Health Checks"
+              results={[
+                {
+                  isHit: true,
+                  title: "Easy setup",
+                  desc: "Just point it at a URL",
+                },
+                {
+                  isHit: false,
+                  title: "Misses issues",
+                  desc: "Because it doesn't monitor user experience, it can miss issues for hours or even totally!",
+                },
+                {
+                  isHit: false,
+                  title: "Doesn't help debug",
+                  desc: "Doesn't capture any other information to help you debug.",
+                },
+                {
+                  isHit: false,
+                  title: "Other services required",
+                  desc: "You'll need to buy other monitoring services just to get everything you need!",
+                },
+              ]}
+            />
           </div>
         </div>
         <div className={styles.bottomCtas}>
@@ -312,6 +292,44 @@ export default function Hello() {
         />
       </div>
     </Layout>
+  );
+}
+
+function Option({
+  title,
+  desc,
+  results,
+}: {
+  title: React.ReactNode;
+  desc?: string;
+  results: {
+    isHit: boolean;
+    title: string;
+    desc: React.ReactNode;
+  }[];
+}) {
+  return (
+    <div className={styles.compareOption}>
+      <div className={styles.compareHeader}>
+        <div className={styles.compareTitle}>{title}</div>
+        {desc != null ? <div className={styles.compareDesc}>{desc}</div> : null}
+      </div>
+      <div className={styles.resultsContainer}>
+        {results.map((r, i) => (
+          <div
+            className={`${styles.compareResult} ${
+              r.isHit ? styles.hit : styles.miss
+            }`}
+          >
+            <div className={styles.resultHeader}>
+              <div className={styles.resultIcon}>{r.isHit ? "✅" : "❌"}</div>
+              <div className={styles.resultTitle}>{r.title}</div>
+            </div>
+            <div className={styles.resultDesc}>{r.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
