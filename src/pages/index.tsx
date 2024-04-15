@@ -32,7 +32,7 @@ export default function Hello() {
           </div>
         </div>
         <div className={styles.mainPreviewContainer}>
-          <img className={styles.mainPreviewScreen} src="/img/ss_home.png" />
+          <img className={styles.mainPreviewScreen} src="/img/ss_home2.png" />
         </div>
         <div className={styles.detailsContainer}>
           <div className={styles.detailsPanels}>
@@ -60,7 +60,7 @@ export default function Hello() {
                       </p>
                     </>
                   ),
-                  imageUrl: "/img/ss_pages.png",
+                  imageUrl: "/img/ss_pages2.png",
                 },
                 {
                   header: (
@@ -233,7 +233,7 @@ export default function Hello() {
                 {
                   isHit: true,
                   title: "Easy setup",
-                  desc: "Just point it at a URL",
+                  desc: "Just point it at a URL.",
                 },
                 {
                   isHit: false,

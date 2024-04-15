@@ -73,6 +73,7 @@
     flex: 0 1 100%;
     display: block;
     width: 100%;
+    min-width: 100px;
     height: 100%;
     border-radius: 8px;
 }
