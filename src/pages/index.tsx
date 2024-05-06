@@ -9,11 +9,11 @@ export default function Hello() {
       <div className={styles.container}>
         <div className={styles.first}>
           <h1 className={styles.pageTitle}>
-            Monitoring that works out-of-the-box
+            Shipping reliable products <EX>made easy</EX>
           </h1>
           <div className={styles.subtitle}>
-            Not getting value out of your current monitoring? Get{" "}
-            <EX>better signal</EX> using <EX>less effort</EX> with Catalyst.
+            Get everything you need to build reliable products without
+            compromising velocity.
           </div>
           <div className={styles.ctas}>
             <a
@@ -27,109 +27,126 @@ export default function Hello() {
               target="_blank"
               href="https://app.catalystmonitor.com/o/9c5f882c-fb76-4583-97d6-6c83eb382faf"
             >
-              Play with a live demo
+              Live Sandbox
             </a>
           </div>
         </div>
-        <div className={styles.mainPreviewContainer}>
-          <img className={styles.mainPreviewScreen} src="/img/ss_home2.png" />
-        </div>
-        <div className={styles.detailsContainer}>
-          <div className={styles.detailsPanels}>
-            <InfoPanels
-              panels={[
+        <div className={styles.details}>
+          <h2 className={styles.detailsTitle}>
+            Monitoring <EX>made for product builders</EX>, not just
+            monitoring/observability experts
+          </h2>
+          <div className={styles.detailsCards}>
+            {(
+              [
                 {
-                  header: (
-                    <>
-                      <EX>Error Rates</EX> - the Metric You Need
-                    </>
-                  ),
-                  details: (
-                    <>
-                      <p>
-                        With error rates by page and endpoint,{" "}
-                        <EX>
-                          you know exactly where and how severe your breakage is
-                        </EX>
-                        . Spend less time chasing false positives, and no time
-                        cleaning out error inboxes!
-                      </p>
-                      <p>
-                        You get this out-of-the-box with Catalyst,{" "}
-                        <EX>no manual instrumentation or configuration</EX>.
-                      </p>
-                    </>
-                  ),
-                  imageUrl: "/img/ss_pages2.png",
+                  feature: "Single generalist solution",
+                  over: "Composing multiple specialist solutions",
                 },
                 {
-                  header: (
-                    <>
-                      Everything You Need to <EX>Debug</EX>
-                    </>
-                  ),
-                  details: (
-                    <>
-                      <p>
-                        Don't want to pay for another service? Good news, you
-                        don't have to.
-                      </p>
-                      <p>
-                        Get a breakdown of logs and errors on your endpoints and
-                        pages, and a list of sessions with said errors in
-                        context. Track down issues with ease.
-                      </p>
-                    </>
-                  ),
-                  imageUrl: "/img/ss_breakdown.png",
+                  feature: "Sensible defaults",
+                  over: "Elaborate configuration required",
                 },
                 {
-                  header: (
-                    <>
-                      <EX>End-to-End</EX> Coverage
-                    </>
-                  ),
-                  details: (
-                    <>
-                      <p>
-                        Track clicks, navigation, backend calls, and errors
-                        across the stack.
-                      </p>
-                      <p>
-                        <EX>Debug faster and better</EX>, with all your
-                        information in context.
-                      </p>
-                    </>
-                  ),
-                  imageUrl: "/img/ss_session.png",
+                  feature: "No new concepts introduced",
+                  over: "Learning monitoring-specific concepts",
                 },
-                {
-                  header: (
-                    <>
-                      <EX>Alerted</EX> for every issue
-                    </>
-                  ),
-                  details: (
-                    <>
-                      <p>
-                        By monitoring the symptoms, you'll get actionable and
-                        comprehensive alerts. No false positives, and no missing
-                        issues.
-                      </p>
-                      <p>
-                        No need to pay for another alerting service either,
-                        we'll let you know when there's an issue!
-                      </p>
-                    </>
-                  ),
-                  imageUrl: "/img/ss_alerts.png",
-                },
-              ]}
-            />
+              ] as { feature: string; over: string; details: React.ReactNode }[]
+            ).map((r, idx) => (
+              <div className={styles.detailCard} key={idx}>
+                <div className={styles.detailFeature}>
+                  <span
+                    className={`${styles.detailIcon} ${styles.detailCheck}`}
+                  >
+                    <img src="img/logo.svg" />
+                  </span>
+                  <span className={styles.detailText}>{r.feature}</span>
+                </div>
+                <div className={styles.detailOver}>
+                  <span className={styles.detailIcon}>❌</span>
+                  <span className={styles.detailText}>{r.over}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+        <InfoPanels
+          panels={[
+            {
+              header: "No false positives - right out of the box",
+              details: (
+                <>
+                  <p>
+                    We already know what you need. After setup, you'll get error
+                    rate monitoring - no configuration required.
+                  </p>
+                  <p>
+                    Error rate monitoring is better than regular error
+                    monitoring, you'll know exactly when and where your issues
+                    are without false positives.
+                  </p>
+                </>
+              ),
+              imageUrl: "/img/ss_pages2.png",
+            },
+            {
+              header: "Resolve issues without paying for multiple services",
+              details: (
+                <>
+                  <p>
+                    Don't want to pay for another service? Great news, you don't
+                    have to anymore. We have everything you need to find and fix
+                    issues.
+                  </p>
+                  <p>
+                    Catalyst tracks logs and error messages across your entire
+                    stack. You'll have all the context needed to find and fix
+                    any issues your users may face.
+                  </p>
+                </>
+              ),
+              imageUrl: "/img/ss_breakdown.png",
+            },
+            {
+              header: "End-to-end coverage",
+              details: (
+                <>
+                  <p>
+                    Instead of separate monitoring for your frontend and
+                    backend, how about one service that monitors both?
+                  </p>
+                  <p>
+                    Track clicks, navigation, backend calls, and errors across
+                    your entire stack. The whole is better than the sum of its
+                    parts - you'll resolve issues faster without switching
+                    between multiple services.
+                  </p>
+                </>
+              ),
+              imageUrl: "/img/ss_session.png",
+            },
+            {
+              header: "Alerted for every issue",
+              details: (
+                <>
+                  <p>
+                    All your alerts will be actionable and comprehensive - no
+                    false positives and no missing issues.
+                  </p>
+                  <p>
+                    No need to pay for another alerting service either, we'll
+                    let you know when there's an issue!
+                  </p>
+                </>
+              ),
+              imageUrl: "/img/ss_alerts.png",
+            },
+          ]}
+        />
         <div className={styles.comparisonContainer}>
-          <h2>The best option for teams that move fast</h2>
+          <h2>
+            The <EX>best</EX> option for teams that move fast
+          </h2>
           <div className={styles.comparisonOptions}>
             <Option
               title={
@@ -266,7 +283,7 @@ export default function Hello() {
             className={styles.bottomDocs}
             href="https://app.catalystmonitor.com/o/9c5f882c-fb76-4583-97d6-6c83eb382faf"
           >
-            Play with a live demo
+            Live Sandbox
           </a>
         </div>
         <div className={styles.lastDitchLinks}>
@@ -287,7 +304,7 @@ export default function Hello() {
           className={styles.demoContainer}
           dangerouslySetInnerHTML={{
             __html:
-              '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/75e1f3e494ec4c8a85ce39007561c3a3?sid=795d4e11-7a19-4b81-a807-1ddc22b9ea41" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
+              '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/b6685e4373b14538bf5abf5915558b43?sid=444efb91-b8af-4568-9abc-19a39b047842" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
           }}
         />
       </div>

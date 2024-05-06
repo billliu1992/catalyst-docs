@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./InfoPanels.module.css";
 
 export default function InfoPanels({
@@ -10,29 +9,19 @@ export default function InfoPanels({
     imageUrl: string;
   }[];
 }) {
-  const [clickedIdx, setClickedIdx] = useState(0);
   return (
     <div className={styles.infoPanels}>
-      <div className={styles.text}>
-        {panels.map((p, idx) => (
-          <div className={styles.panel} onClick={() => setClickedIdx(idx)}>
-            <div className={styles.header}>
-              <span className={styles.headerText}>{p.header}</span>
-              <span className={styles.headerArr}>
-                {clickedIdx == idx ? "-" : "+"}
-              </span>
-            </div>
-            <div
-              className={
-                clickedIdx == idx ? styles.detailsVis : styles.detailsHid
-              }
-            >
-              {p.details}
+      {panels.map((p) => (
+        <div className={styles.infoPanel}>
+          <div className={styles.text}>
+            <div className={styles.panel}>
+              <h3>{p.header}</h3>
+              <div className={styles.details}>{p.details}</div>
             </div>
           </div>
-        ))}
-      </div>
-      <img className={styles.image} src={panels[clickedIdx].imageUrl} />
+          <img className={styles.image} src={p.imageUrl} />
+        </div>
+      ))}
     </div>
   );
 }
