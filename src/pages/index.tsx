@@ -87,7 +87,7 @@ export default function Hello() {
                   </p>
                 </>
               ),
-              imageUrl: "/img/ss_pages2.png",
+              imageUrl: "/img/ss_home3.png",
             },
             {
               header: "Resolve issues without paying for multiple services",
@@ -105,7 +105,7 @@ export default function Hello() {
                   </p>
                 </>
               ),
-              imageUrl: "/img/ss_breakdown.png",
+              imageUrl: "/img/ss_breakdown3.png",
             },
             {
               header: "End-to-end coverage",
@@ -123,7 +123,7 @@ export default function Hello() {
                   </p>
                 </>
               ),
-              imageUrl: "/img/ss_session.png",
+              imageUrl: "/img/ss_sessions3.png",
             },
             {
               header: "Alerted for every issue",
@@ -139,7 +139,7 @@ export default function Hello() {
                   </p>
                 </>
               ),
-              imageUrl: "/img/ss_alerts.png",
+              imageUrl: "/img/ss_alerts3.png",
             },
           ]}
         />
