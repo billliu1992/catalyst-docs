@@ -27,13 +27,13 @@ yarn add @catalyst-monitor/core
 Initialize the library as early as possible:
 
 ```ts title="index.ts"
-import { installNodeBase } from '@catalyst-monitor/core/node'
+import { installNodeBase } from "@catalyst-monitor/core/node";
 
 const sdf = installNodeBase({
-  privateKey: '<YOUR PRIVATEY KEY HERE>', // The private key from the "Settings" page in the Catalyst dashboard.
-  systemName: 'catalyst-js-express-example',  // The name given to this service. All endpoints will be grouped by this name.
-  version: '<YOUR VERSION CODE HERE>', // Any to differentiate different deploys, e.g. Git commit SHA
-})
+  privateKey: "<YOUR PRIVATEY KEY HERE>", // The private key from the "Settings" page in the Catalyst dashboard.
+  systemName: "catalyst-js-express-example", // The name given to this service. All endpoints will be grouped by this name.
+  version: "<YOUR VERSION CODE HERE>", // Any to differentiate different deploys, e.g. Git commit SHA
+});
 ```
 
 ## Instrumenting
@@ -53,28 +53,31 @@ import {
   SESSION_ID_HEADER,
   PAGE_VIEW_ID_HEADER,
   PARENT_FETCH_ID_HEADER,
-} from '@catalyst-monitor/core/node'
+} from "@catalyst-monitor/core/node";
 
 const context: ServerRequestContext = {
-    fetchId: crypto.randomUUID(),
-    sessionId: 'SESSION_ID_HERE', // Value of header from SESSION_ID_HEADER
-    pageViewId: 'PAGE_VIEW_ID', // Value of header from PAGE_VIEW_ID_HEADER
-    parentFetchId: 'PARENT_FETCH_ID', // Value of header from PARENT_FETCH_ID_HEADER
-}
+  fetchId: crypto.randomUUID(),
+  sessionId: "SESSION_ID_HERE", // Value of header from SESSION_ID_HEADER
+  pageViewId: "PAGE_VIEW_ID", // Value of header from PAGE_VIEW_ID_HEADER
+  parentFetchId: "PARENT_FETCH_ID", // Value of header from PARENT_FETCH_ID_HEADER
+};
 
 createCatalystContext(context, () => {
-    // Your endpoint code here.
-})
+  // Your endpoint code here.
+});
 ```
 
 Afterwards, you can obtain and pass this context object when calling Catalyst:
 
 ```ts
-import { getCatalystNode, getCatalystContext } from '@catalyst-monitor/core/node'
+import {
+  getCatalystNode,
+  getCatalystContext,
+} from "@catalyst-monitor/core/node";
 
-const context = getCatalystContext()
+const context = getCatalystContext();
 if (context != null) {
-    getCatalystNode().recordLog('error', e, {}, context)
+  getCatalystNode().recordLog("error", e, {}, context);
 }
 ```
 
@@ -83,29 +86,33 @@ if (context != null) {
 To record an HTTP request, simply take the context you've created, and pass it into `recordFetch`.
 
 ```ts
-import { getCatalystNode, getCatalystContext } from '@catalyst-monitor/core/node'
+import {
+  getCatalystNode,
+  getCatalystContext,
+} from "@catalyst-monitor/core/node";
 
-const context = getCatalystContext()
+const context = getCatalystContext();
 
 if (context != null) {
-    getCatalystNode().recordFetch(
-         // The HTTP method, e.g. get, post, put
-        'get',
+  getCatalystNode().recordFetch(
+    // The HTTP method, e.g. get, post, put
+    "get",
 
-        // The path pattern, unreplaced.
-        '/widgets/:widgetId',
+    // The path pattern, unreplaced.
+    "/widgets/:widgetId",
 
-        // The path parameter values.
-        { widgetId: 'a' },
+    // The path parameter values.
+    { widgetId: "a" },
 
-        // The HTTP status code, as a number.
-        200,
+    // The HTTP status code, as a number.
+    200,
 
-        {
-            seconds: 5, // Number of seconds this request took.
-            nanos: 0, // Number of nanoseconds after the second.
-        },
-        context)
+    {
+      seconds: 5, // Number of seconds this request took.
+      nanos: 0, // Number of nanoseconds after the second.
+    },
+    context
+  );
 }
 ```
 
@@ -118,9 +125,30 @@ Replace `fetch(...)` calls to servers with Catalyst installed with the provided 
 Note that `catalystNodeFetch` has the same interface as `fetch`, so you can simply drop the new function in.
 
 ```ts title="api.ts"
-import { catalystNodeFetch as cFetch } from '@catalyst-monitor/core/node'
+import { catalystNodeFetch as cFetch } from "@catalyst-monitor/core/node";
 
 await cFetch("/api/widget/123", {
   method: method,
-})
+});
+```
+
+## (Optional) Associating User Info
+
+You can associate user info with the current request context using `updateCatalystUserInfoContext`. This will show up in the Catalyst dashboard UI associated with the request, and may help you debug.
+
+The best place to call `updateCatalystUserInfoContext` is after successfully authenticating your request.
+
+Note that `setUserInfo` is not opinionated about the ID or username format, and will not enforce uniqueness. You can set it to whatever you want. All it does is send it to Catalyst to display.
+
+```ts
+import { updateCatalystUserInfoContext } from "@catalyst-monitor/core/node";
+
+updateCatalystUserInfoContext({
+  loggedInUserName: "any-string",
+  loggedInId: "any-string",
+});
+
+// Removes the user info for the current request, if it's been previously set.
+// Does nothing if no user info was set.
+updateCatalystUserInfoContext(null);
 ```
