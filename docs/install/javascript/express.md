@@ -13,10 +13,10 @@ For a working example, please checkout our [examples repo](https://github.com/ca
 To get started, add the Catalyst dependencies:
 
 ```bash title="Terminal"
-npm install @catalyst-monitor/core @catalyst-monitor/express
+npm install @catalyst-monitor/server@^0.1.1 @catalyst-monitor/express@^0.1.1
 
 # Alternatively, if you use Yarn:
-yarn add @catalyst-monitor/core @catalyst-monitor/express
+yarn add @catalyst-monitor/server@^0.1.1 @catalyst-monitor/express@^0.1.1
 ```
 
 ## Initialize the library
@@ -24,13 +24,13 @@ yarn add @catalyst-monitor/core @catalyst-monitor/express
 Initialize the library as early as possible:
 
 ```ts title="index.ts"
-import { installNodeBase } from '@catalyst-monitor/core/node'
+import Catalyst from "@catalyst-monitor/server";
 
-const sdf = installNodeBase({
-  privateKey: '<YOUR PRIVATEY KEY HERE>', // The private key from the "Settings" page in the Catalyst dashboard.
-  systemName: 'catalyst-js-express-example',
-  version: '<YOUR VERSION CODE HERE>', // Any to differentiate different deploys, e.g. Git commit SHA
-})
+Catalyst.start({
+  privateKey: "<YOUR PRIVATE KEY HERE>", // The private key from the "Settings" page in the Catalyst dashboard.
+  systemName: "catalyst-js-express-example", // Any string to differentiate this service.
+  version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
+});
 ```
 
 ## Record HTTP requests
@@ -38,35 +38,21 @@ const sdf = installNodeBase({
 Install the two Catalyst middleware functions, to record requests and logs.
 
 ```ts title="app.ts"
-import express from 'express'
+import express from "express";
 import {
   catalystErrorHandler,
   catalystHandler,
-} from '@catalyst-monitor/express'
+} from "@catalyst-monitor/express";
 
-const app = express()
+const app = express();
 
 // The Catalyst middleware should be installed as early as possible
 // to propagate any context and capture any logs and errors.
-app.use(catalystHandler)
+app.use(catalystHandler);
 
 // YOUR ROUTES HERE!
 
 // The Catalyst error handler should be installed as late as possible
 // to record any uncaught errors.
-app.use(catalystErrorHandler)
-```
-
-## Propagate Session Info
-
-To ensure session info is correctly propagated, simply replace `fetch(...)` calls to servers with the provided `catalystNodeFetch`. If the backend has Catalyst installed, then the request will be associated with the calling session.
-
-Note that `catalystNodeFetch` has the same interface as `fetch`, so you can simply drop the new function in.
-
-```ts title="api.ts"
-import { catalystNodeFetch as cFetch } from '@catalyst-monitor/core/node'
-
-await cFetch("https://.../api/widget/123", {
-  method: method,
-})
+app.use(catalystErrorHandler);
 ```

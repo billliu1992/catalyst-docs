@@ -16,10 +16,10 @@ For a working example, please checkout our [examples repo](https://github.com/ca
 To get started, add the core Javascript library to your client:
 
 ```bash title="Terminal"
-npm install @catalyst-monitor/core
+npm install @catalyst-monitor/web@^0.1.1
 
 # Alternatively, if you use Yarn:
-yarn add @catalyst-monitor/core
+yarn add @catalyst-monitor/web@^0.1.1
 ```
 
 ## Initialize the library
@@ -27,13 +27,14 @@ yarn add @catalyst-monitor/core
 Initialize the library as early as possible:
 
 ```ts title="index.ts"
-import { installWebBase } from "@catalyst-monitor/core";
+import Catalyst from "@catalyst-monitor/web";
 
-installWebBase({
-  version: "<YOUR VERSION CODE HERE>", // Any to differentiate different deploys, e.g. Git commit SHA
-  systemName: "catalyst-js-react-example", // The name given to this service. All endpoints will be grouped by this name.
-  userAgent: navigator.userAgent,
+Catalyst.start({
   publicKey: "<YOUR PUBLIC KEY HERE>", // The public key from the "Settings" page in the Catalyst dashboard.
+  systemName: "catalyst-js-express-example", // Any string to differentiate this service.
+  version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
+  userAgent: navigator.userAgent,
+  systemName: "catalyst-js-react-example", // ANy string to differentiate this service.
 });
 ```
 
@@ -46,55 +47,38 @@ An example of how we instrument Catalyst for React Router can be found [here](ht
 In order for Catalyst to associate logs and errors to the page the user is currently on, you'll need to let Catalyst know when the user changes page by calling `getCatalystWeb().recordPageView(...)`.
 
 ```ts
-import { getCatalystWeb } from "@catalyst-monitor/core/web";
+import Catalyst from "@catalyst-monitor/web";
 
-getCatalystWeb().recordPageView("/", {});
-```
+CatalystWeb.getReporter().recordPageView({
+  // The fully built path (as it appears in the address bar).
+  rawPath: "/todo/abc123",
 
-`recordPageView` takes a path pattern, and the path params associated with the pattern. Catalyst is not opinionated on the format of the path pattern, so we suggest you pass in the pattern as returned from your navigation library.
+  // The pattern used to match the raw path with the route.
+  // The format does not matter, it could be /todo/:todoId for example.
+  pathPattern: "/todo/{todoId}",
 
-```ts
-// This works
-getCatalystWeb().recordPageView("/widgets/:widgetId", { widgetId: string });
-
-// Or this
-getCatalystWeb().recordPageView("/widgets/{widgetId}", { widgetId: string });
-```
-
-For best results, always pass in the path pattern and param separately. This will give you an aggregate view of logs and errors per path pattern, while still letting you drill down on individual visits.
-
-## Propagate Session Info
-
-Replace `fetch(...)` calls to servers with Catalyst installed with the provided `catalystWebFetch`. This will ensure session info is correctly propagated.
-
-Note that `catalystWebFetch` has the same interface as `fetch`, so you can simply drop the new function in.
-
-```ts title="api.ts"
-import { catalystWebFetch as cFetch } from "@catalyst-monitor/core/web";
-
-await cFetch("/api/widget/123", {
-  method: method,
+  // The arguments from the path.
+  args: { todoId: "abc123" },
 });
 ```
 
+Note that `recordPageView` is stateful. Once it's called, any subsequent actions (like logs, fetches) will be associated with this page view.
+
 ## (Optional) Associating User Info
 
-You can associate user info with the current session with `setUserInfo`. This will show up in the Catalyst dashboard UI, and may help you debug.
+You can associate user info with the current page view and session with `setUserInfo`. This will show up in the Catalyst dashboard UI, and may help you debug.
 
 `setUserInfo` is stateful, and any subsequently recorded event will carry the user info. Therefore, the best place to do this is to any auth listeners.
 
 Note that `setUserInfo` is not opinionated about the ID or username format, and will not enforce uniqueness. You can set it to whatever you want. All it does is send it to Catalyst to display.
 
 ```ts
-import { getCatalystWeb } from "@catalyst-monitor/core/web";
+import Catalyst from "@catalyst-monitor/web";
 
-onAuthChange((user) => {
-  // This is provided by your auth library
-  getCatalystWeb().setUserInfo({
-    loggedInId: user.id, // Any string ID
-    loggedInUserName: user.name, // A username, e-mail, etc...
-  });
-
-  getCatalystWeb().setUserInfo(null); // Logged out.
+CatalystWeb.getReporter().setUserInfo({
+  loggedInId: user.id, // Any string ID
+  loggedInName: user.name, // A username, e-mail, etc...
 });
+
+getCatalystWeb().setUserInfo(null); // Logged out.
 ```

@@ -13,10 +13,10 @@ For a working example, please checkout our [examples repo](https://github.com/ca
 To get started, add the Catalyst dependencies:
 
 ```bash title="Terminal"
-npm install @catalyst-monitor/core @catalyst-monitor/react-router
+npm install @catalyst-monitor/core@^0.1.1 @catalyst-monitor/react-router^0.1.1
 
 # Alternatively, if you use Yarn:
-yarn add @catalyst-monitor/core @catalyst-monitor/react-router
+yarn add @catalyst-monitor/core^0.1.1 @catalyst-monitor/react-router^0.1.1
 ```
 
 ## Initialize the library
@@ -24,14 +24,15 @@ yarn add @catalyst-monitor/core @catalyst-monitor/react-router
 Initialize the library as early as possible:
 
 ```ts title="index.ts"
-import { installWebBase } from '@catalyst-monitor/core/web'
+import Catalyst from "@catalyst-monitor/web";
 
-installWebBase({
-  version: '<YOUR VERSION CODE HERE>', // Any to differentiate different deploys, e.g. Git commit SHA
-  systemName: 'catalyst-js-react-example',  // The name given to this service. All endpoints will be grouped by this name.
+Catalyst.start({
+  publicKey: "<YOUR PUBLIC KEY HERE>", // The public key from the "Settings" page in the Catalyst dashboard.
+  systemName: "catalyst-js-express-example", // Any string to differentiate this service.
+  version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
   userAgent: navigator.userAgent,
-  publicKey: '<YOUR PUBLIC KEY HERE>', // The public key from the "Settings" page in the Catalyst dashboard.
-})
+  systemName: "catalyst-js-react-example", // ANy string to differentiate this service.
+});
 ```
 
 ## Record Navigation Events
@@ -39,12 +40,8 @@ installWebBase({
 To record navigation events, simply wrap your existing routes with Catalyst.
 
 ```ts
-import {
-  Outlet,
-  useLocation,
-  createBrowserRouter,
-} from 'react-router-dom'
-import { wrapRoutes } from '@catalyst-monitor/react-router'
+import { Outlet, useLocation, createBrowserRouter } from "react-router-dom";
+import { wrapRoutes } from "@catalyst-monitor/react-router";
 
 const router = createBrowserRouter(
   // Wrap your React Router routes with Catalyst.
@@ -59,21 +56,5 @@ const router = createBrowserRouter(
       useLocation,
     }
   )
-)
+);
 ```
-
-## Propagate Session Info
-
-Replace `fetch(...)` calls to servers with Catalyst installed with the provided `catalystWebFetch`. This will ensure session info is correctly propagated.
-
-Note that `catalystWebFetch` has the same interface as `fetch`, so you can simply drop the new function in.
-
-```ts title="api.ts"
-
-import { catalystWebFetch as cFetch } from '@catalyst-monitor/core/web'
-
-await cFetch("/api/widget/123", {
-  method: method,
-})
-```
-

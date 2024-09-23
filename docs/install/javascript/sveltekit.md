@@ -21,10 +21,10 @@ Before you start, you'll need to sign up for Catalyst and have your keys ready, 
 To get started, add the Catalyst dependencies:
 
 ```bash title="Terminal"
-npm install @catalyst-monitor/sveltekit
+npm install @catalyst-monitor/sveltekit@v0.1.1
 
 # Alternatively, if you use Yarn:
-yarn add @catalyst-monitor/sveltekit
+yarn add @catalyst-monitor/sveltekit@v0.1.1
 ```
 
 ## 2. Create or edit your hook files
@@ -33,50 +33,43 @@ Catalyst uses [hooks](https://kit.svelte.dev/docs/hooks) to get info and report 
 
 ```javascript title="src/hooks.client.js"
 import {
+  Catalyst,
   catalystClientErrorHandler,
-  installWebBase,
 } from "@catalyst-monitor/sveltekit/client";
 
-installWebBase({
-  systemName: `${PUBLIC_CATALYST_SYSTEM_NAME}-fe`,
-  version: PUBLIC_CATALYST_VERSION,
-  publicKey: PUBLIC_CATALYST_PUBLIC_KEY,
+Catalyst.start({
+  publicKey: "<YOUR PUBLIC KEY HERE>", // The public key from the "Settings" page.
+  version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
+  systemName: "catalyst-sveltekit-example-fe", // Any string to differentiate this service.
   userAgent: window.navigator.userAgent,
-  disabled: false, // You can disable for dev environments if you wish.
 });
 
-export const handleError = catalystClientErrorHandler(() => {
-  // Your existing error handling logic, if any.
+export const handleError = catalystClientErrorHandler((error) => {
+  // Your existing client error handler here...
 });
 ```
 
 ```ts title="src/hooks.server.js"
 import {
-  installNodeBase,
   catalystHandler,
   wrapCatalystFetchHandler,
   wrapCatalystServerErrorHandler,
+  Catalyst,
 } from "@catalyst-monitor/sveltekit/server";
 
 installNodeBase({
-  privateKey: CATALYST_PRIVATE_KEY,
-  systemName: PUBLIC_CATALYST_SYSTEM_NAME,
-  version: PUBLIC_CATALYST_VERSION,
-  baseUrl: "http://localhost:7070",
+  privateKey: "<YOUR PRIVATE KEY HERE>", // The private key from the "Settings" page in the Catalyst dashboard.
+  version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
+  systemName: "catalyst-sveltekit-example", // Any string to differentiate this service.
 });
 
-export const handleError = wrapCatalystServerErrorHandler(({ error }) => {
-  // Your existing error handling logic, if any.
-});
+// You can optionally pass in your existing handleError function.
+export const handleError = wrapCatalystServerErrorHandler();
 
-export const handleFetch = wrapCatalystFetchHandler([
-  // All the base URLs to propagate session ID info to.
-  // If a server has Catalyst installed, add the domain here and it will automatically receive the session info!
-  //
-  // At the very least, you should have the domain this Sveltekit server is hosted at, e.g.
-  // 'https://app.catalystmonitor.com',
-]);
+// You can optionally pass in your existing handleFetch function.
+export const handleFetch = wrapCatalystFetchHandler();
 
+// See below if you have an existing handle function.
 export const handle = catalystHandler;
 ```
 
@@ -86,6 +79,7 @@ We recommend putting the `catalystHandler` first, so any changes you make in you
 
 ```ts title="src/hooks.server.js"
 import { sequence } from "@sveltejs/kit/hooks";
+
 export const handle = sequence(
   catalystHandler, // as imported in the above example,
   yourOwnHandler // as defined by you.
@@ -107,17 +101,25 @@ As soon as possible, add the `Catalyst` component. This component will ensure na
 
 ## 4 (Optional). Associate user info
 
-You can associate user info with event data. Follow the steps for the [web](/docs/install/javascript/other-web) and . You can see a working example [on Github][example].
+You can associate user info with the current request context in both the client and server by calling `setUserInfo`. This will show up in the Catalyst dashboard UI associated with the request, and may help you debug.
+
+Note that `setUserInfo` is not opinionated about the ID or username format, and will not enforce uniqueness. You can set it to whatever you want. All it does is send it to Catalyst to display.
 
 ### Server
 
-In general, follow the steps for [servers](/docs/install/javascript/other-node). You'll likely want to authenticate inside a server hook, which you can sequence with the Catalyst handler like such:
+```ts
+import { Catalyst } from "@catalyst-monitor/sveltekit/server";
+
+Catalyst.getReporter().setLoggedInUserInfo({
+  loggedInId: "any-id", // Optional
+  loggedInName: "any-username-name-email", // Optional
+});
+```
+
+In a more realistic setting, you'd probably handle auth inside a server-side hook. You can sequence your auth hook after `catalystHandler`.
 
 ```ts title="src/hooks.server.js"
-import {
-  catalystHandler,
-  updateCatalystUserInfoContext,
-} from "@catalyst-monitor/sveltekit/server";
+import { Catalyst } from "@catalyst-monitor/sveltekit/server";
 import { sequence } from "@sveltejs/kit/hooks";
 
 async function authHandler({ event, resolve }) {
@@ -125,9 +127,9 @@ async function authHandler({ event, resolve }) {
   const user = await getUserInformation(event.cookies.get("sessionid"));
   event.locals.user = user;
   if (user != null) {
-    updateCatalystUserInfoContext({
-      loggedInUserName: user.name,
-      loggedInId: user.id,
+    Catalyst.getReporter().setLoggedInUserInfo({
+      loggedInId: "any-id", // Optional
+      loggedInName: "any-username-name-email", // Optional
     });
   }
 
@@ -140,9 +142,20 @@ export const handle = sequence(
 );
 ```
 
-### Web
+### Client
 
-In general, follow the steps for the [web](/docs/install/javascript/other-web). You'll likely want to listen to auth changes as early as possible, inside the base `+layout.svelte`, which means it'll look something like this:
+For the client, simply change your import.
+
+```ts
+import { Catalyst } from "@catalyst-monitor/sveltekit/client";
+
+Catalyst.getReporter().setLoggedInUserInfo({
+  loggedInId: "any-id", // Optional
+  loggedInName: "any-username-name-email", // Optional
+});
+```
+
+In a more realistic setting, you'd likely want to listen to auth changes and set your user info accordingly.
 
 ```svelte title="src/routes/+layout.svelte
 

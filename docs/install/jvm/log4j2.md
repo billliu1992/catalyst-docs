@@ -12,33 +12,33 @@ Add the dependencies required for Catalyst.
 <dependency>
     <groupId>com.catalystmonitor.client</groupId>
     <artifactId>catalyst-core</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.1</version>
 </dependency>
 <dependency>
     <groupId>com.catalystmonitor.client</groupId>
-    <artifactId>catalyst-javalin</artifactId>
-    <version>0.0.1</version>
+    <artifactId>catalyst-log4j2</artifactId>
+    <version>0.1.1</version>
 </dependency>
 ```
 
 ```kotlin title="Gradle (Kotlin)"
-implementation("com.catalystmonitor.client:catalyst-core:0.0.1")
-implementation("com.catalystmonitor.client:catalyst-javalin:0.0.1")
+implementation("com.catalystmonitor.client:catalyst-core:0.1.1")
+implementation("com.catalystmonitor.client:catalyst-log4j2:0.1.1")
 ```
 
 ## 2. Initialize Catalyst
 
 ```kotlin
-CatalystServer
-    .createInstance(
-        CatalystServer.Options(
-            privateKey = "KEY-HERE", // Private key from dashboard
-            version = "abc", // Any string depicting version, like Git commit hash
-            systemName = "foo-backend", // Any name, separating this system from others.
-            disabled = false, // Optionally, disable for local development.
-        )
+import com.catalystmonitor.client.core.Catalyst
+import com.catalystmonitor.client.core.CatalystConfig
+
+Catalyst.start(
+    CatalystConfig(
+        privateKey = "<YOUR PUBLIC KEY HERE>", // The public key from the "Settings" page.
+        version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
+        systemName = "catalyst-log4j2-example", // Any string to differentiate this service.
     )
-    .start()
+)
 ```
 
 ## 3. Add CatalystAppender to your Log4j2 configuration
@@ -69,7 +69,7 @@ CatalystServer
 </Configuration>
 ```
 
-## 4. Wrap your sessions
+## 4. Wrap endpoint handlers with Catalyst
 
 :::note
 Instead of manually wrapping your sessions, it's recommended to use a library for your framework like [Javalin](./javalin).
@@ -78,27 +78,44 @@ If your framework isn't currently supported, please reach out either [through e-
 :::
 
 ```kotlin
-val logger = LoggerFactory.getLogger("example")
+import com.catalystmonitor.client.core.Catalyst
+import com.catalystmonitor.client.core.ServerAction
+import org.apache.logging.log4j.LogManager
 
-CatalystServer.Context.setLocal(
-    ServerRequestContext(
-        fetchId = UUID.randomUUID().toString(),
-        sessionId = sessionId,
-        pageViewId = ctx.header(CommonStrings.PAGE_VIEW_ID_HEADER),
-        parentFetchId = ctx.header(CommonStrings.PARENT_FETCH_ID_HEADER),
+val logger = LogManager.getLogger("log-name-or-class-here")
+
+val span = Catalyst.getReporter().startServerAction(
+    ServerAction(
+        // All the handler information here...
     )
 )
-
-val e = RuntimeException()
-logger
-    .atError()
-    // This exception and stack trace will be sent to Catalyst
-    .setCause(e)
-    // Both the message pattern and parameter values will be sent to Catalyst.
-    .log("This is a message with parameters: {}", 45)
-
-CatalystServer.Context.removeLocal()
+span.makeCurrent().use {
+    // Inside this try-with-resources block, all logs will be sent to Catalyst
+    // associated with this server call.
+    val e = RuntimeException()
+    logger
+        .atError()
+        // This exception and stack trace will be sent to Catalyst
+        .setCause(e)
+        // Both the message pattern and parameter values will be sent to Catalyst.
+        .log("This is a message with parameters: {}", 45)
+}
 ```
 
-## Finished
+## Ignore logs for Catalyst
 
+You can set logs to be ignored with Catalyst.
+
+This is extremely helpful for cases like access logs, where the information captured is redundant with the information captured by Catalyst, but you still want the information logged.
+
+```
+import com.catalystmonitor.client.log4j2.CATALYST_IGNORED_MARKER
+import org.apache.logging.log4j.LogManager
+
+val logger = LogManager.getLogger("log-name-or-class-here")
+
+logger.atInfo()
+    .withMarker(CATALYST_IGNORED_MARKER)
+    // Any fluent log methods here...
+    .log("I won't be sent to Catalyst!")
+```

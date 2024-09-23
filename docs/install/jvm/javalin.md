@@ -16,37 +16,40 @@ Add the dependencies required for Catalyst.
 <dependency>
     <groupId>com.catalystmonitor.client</groupId>
     <artifactId>catalyst-core</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.1</version>
 </dependency>
 <dependency>
     <groupId>com.catalystmonitor.client</groupId>
     <artifactId>catalyst-javalin</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
 ```kotlin title="Gradle (Kotlin)"
-implementation("com.catalystmonitor.client:catalyst-core:0.0.1")
-implementation("com.catalystmonitor.client:catalyst-javalin:0.0.1")
+implementation("com.catalystmonitor.client:catalyst-core:0.1.1")
+implementation("com.catalystmonitor.client:catalyst-javalin:0.1.1")
 ```
 
 ## 2. Initialize Catalyst, and install the Javalin plugin.
 
 ```kotlin
+import com.catalystmonitor.client.core.Catalyst
+import com.catalystmonitor.client.core.CatalystConfig
+import com.catalystmonitor.client.javalin.CatalystPlugin
+
 fun main(args: Array<String>) {
-    CatalystServer
-        .createInstance(
-            CatalystServer.Options(
-                privateKey = "KEY-HERE", // Private key from dashboard
-                version = "abc", // Any string depicting version, like Git commit hash
-                systemName = "foo-backend", // Any name, separating this system from others.
-                disabled = false, // Optionally, disable for local development.
-            )
+    Catalyst.start(
+        CatalystConfig(
+            privateKey = "<YOUR PUBLIC KEY HERE>", // The public key from the "Settings" page.
+            version: "<YOUR VERSION CODE HERE>", // Any string to differentiate different deploys, e.g. Git commit SHA
+            systemName = "catalyst-javalin-example", // Any string to differentiate this service.
         )
-        .start()
+    )
     Javalin.create { config ->
         config.registerPlugin(CatalystPlugin {
-            it.endpoints.add("/api/*")
+            // Optionally, limit the paths monitored by Catalyst.
+            // It uses the Javalin path pattern.
+            // it.endpoints.add("/api/*")
         })
         // The rest of configuration here...
     }
